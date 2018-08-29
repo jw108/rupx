@@ -11,7 +11,6 @@
 
 #include "init.h"
 
-#include "accumulatorcheckpoints.h"
 #include "accumulators.h"
 #include "activemasternode.h"
 #include "addrman.h"
@@ -20,7 +19,6 @@
 #include "compat/sanity.h"
 #include "httpserver.h"
 #include "httprpc.h"
-#include "invalid.h"
 #include "key.h"
 #include "main.h"
 #include "masternode-budget.h"
@@ -1335,7 +1333,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     // ********************************************************* Step 7: load block chain
 
     //PIVX: Load Accumulator Checkpoints according to network (main/test/regtest)
-    assert(AccumulatorCheckpoints::LoadCheckpoints(Params().NetworkIDString()));
+    //assert(AccumulatorCheckpoints::LoadCheckpoints(Params().NetworkIDString()));
 
     fReindex = GetBoolArg("-reindex", false);
 
@@ -1438,8 +1436,8 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                 }
 
                 // Populate list of invalid/fraudulent outpoints that are banned from the chain
-                invalid_out::LoadOutpoints();
-                invalid_out::LoadSerials();
+                //invalid_out::LoadOutpoints();
+                //invalid_out::LoadSerials();
 
                 // Drop all information from the zerocoinDB and repopulate
                 if (GetBoolArg("-reindexzerocoin", false)) {
@@ -1464,8 +1462,8 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 // Force recalculation of accumulators.
                 if (GetBoolArg("-reindexaccumulators", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_Block_V2_Start()) {
-                        CBlockIndex *pindex = chainActive[Params().Zerocoin_Block_V2_Start()];
+                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
+                        CBlockIndex *pindex = chainActive[Params().Zerocoin_StartHeight()];
                         while (pindex->nHeight < chainActive.Height()) {
                             if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
                                        pindex->nAccumulatorCheckpoint))

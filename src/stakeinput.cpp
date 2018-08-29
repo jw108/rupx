@@ -232,7 +232,7 @@ bool CPivStake::GetModifier(uint64_t& nStakeModifier)
     if (!pindexFrom)
         return error("%s: failed to get index from", __func__);
 
-    if (!GetKernelStakeModifier(pindexFrom->GetBlockHash(), nStakeModifier, nStakeModifierHeight, nStakeModifierTime, false))
+    if (!GetKernelStakeModifier(pindexFrom->GetBlockHash(), nStakeModifier, nStakeModifierHeight, nStakeModifierTime))
         return error("CheckStakeKernelHash(): failed to get kernel stake modifier \n");
 
     return true;

@@ -1105,7 +1105,7 @@ CAmount CWalletTx::GetAnonymizableCredit(bool fUseCache) const
         const CTxIn vin = CTxIn(hashTx, i);
 
         if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-        if (fMasterNode && vout[i].nValue == 10000 * COIN) continue; // do not count MN-like outputs
+        if (fMasterNode && vout[i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN) continue; // do not count MN-like outputs
 
         const int rounds = pwallet->GetInputObfuscationRounds(vin);
         if (rounds >= -2 && rounds < nZeromintPercentage) {
@@ -1169,7 +1169,7 @@ CAmount CWalletTx::GetUnlockedCredit() const
         const CTxOut& txout = vout[i];
 
         if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-        if (fMasterNode && vout[i].nValue == 10000 * COIN) continue; // do not count MN-like outputs
+        if (fMasterNode && vout[i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN) continue; // do not count MN-like outputs
 
         nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
         if (!MoneyRange(nCredit))
@@ -1203,7 +1203,7 @@ CAmount CWalletTx::GetLockedCredit() const
         }
 
         // Add masternode collaterals which are handled likc locked coins
-        else if (fMasterNode && vout[i].nValue == 10000 * COIN) {
+        else if (fMasterNode && vout[i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN) {
             nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
         }
 
@@ -1322,7 +1322,7 @@ CAmount CWalletTx::GetLockedWatchOnlyCredit() const
         }
 
         // Add masternode collaterals which are handled likc locked coins
-        else if (fMasterNode && vout[i].nValue == 10000 * COIN) {
+        else if (fMasterNode && vout[i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN) {
             nCredit += pwallet->GetCredit(txout, ISMINE_WATCH_ONLY);
         }
 
@@ -1464,7 +1464,7 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
             //If this is a zapwallettx, need to readd zpiv
             if (fCheckZPIV && pindex->nHeight >= Params().Zerocoin_StartHeight()) {
                 list<CZerocoinMint> listMints;
-                BlockToZerocoinMintList(block, listMints, true);
+                BlockToZerocoinMintList(block, listMints);
 
                 for (auto& m : listMints) {
                     if (IsMyMint(m.GetValue())) {
@@ -1955,13 +1955,13 @@ void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const
                 if (nCoinType == ONLY_DENOMINATED) {
                     found = IsDenominatedAmount(pcoin->vout[i].nValue);
                 } else if (nCoinType == ONLY_NOT10000IFMN) {
-                    found = !(fMasterNode && pcoin->vout[i].nValue == 10000 * COIN);
+                    found = !(fMasterNode && pcoin->vout[i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN);
                 } else if (nCoinType == ONLY_NONDENOMINATED_NOT10000IFMN) {
                     if (IsCollateralAmount(pcoin->vout[i].nValue)) continue; // do not use collateral amounts
                     found = !IsDenominatedAmount(pcoin->vout[i].nValue);
-                    if (found && fMasterNode) found = pcoin->vout[i].nValue != 10000 * COIN; // do not use Hot MN funds
+                    if (found && fMasterNode) found = pcoin->vout[i].nValue != MASTERNODE_REQUIRED_AMOUNT * COIN; // do not use Hot MN funds
                 } else if (nCoinType == ONLY_10000) {
-                    found = pcoin->vout[i].nValue == 10000 * COIN;
+                    found = pcoin->vout[i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN;
                 } else {
                     found = true;
                 }
@@ -2102,7 +2102,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
             }
 
             //check for min age
-            if (GetAdjustedTime() - nTxTime < nStakeMinAge)
+            if (GetAdjustedTime() - nTxTime < Params().Stake_Min_Age())
                 continue;
 
             //check that it is matured
@@ -2119,7 +2119,9 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
     }
 
     //zPIV
-    if (GetBoolArg("-zpivstake", true) && chainActive.Height() > Params().Zerocoin_Block_V2_Start() && !IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
+    if (GetBoolArg("-zpivstake", true) &&
+        chainActive.Height() > Params().Zerocoin_StartHeight() &&
+        !IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
         //Only update zPIV set once per update interval
         bool fUpdate = false;
         static int64_t nTimeLastUpdate = 0;
@@ -2175,7 +2177,7 @@ bool CWallet::MintableCoins()
                 nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
             }
 
-            if (GetAdjustedTime() - nTxTime > nStakeMinAge)
+            if (GetAdjustedTime() - nTxTime > Params().Stake_Min_Age())
                 return true;
         }
     }
@@ -2486,7 +2488,7 @@ bool CWallet::SelectCoinsDark(CAmount nValueMin, CAmount nValueMax, std::vector<
         if (out.tx->vout[out.i].nValue < CENT) continue;
         //do not allow collaterals to be selected
         if (IsCollateralAmount(out.tx->vout[out.i].nValue)) continue;
-        if (fMasterNode && out.tx->vout[out.i].nValue == 10000 * COIN) continue; //masternode input
+        if (fMasterNode && out.tx->vout[out.i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN) continue; //masternode input
 
         if (nValueRet + out.tx->vout[out.i].nValue <= nValueMax) {
             CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
@@ -3072,7 +3074,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             if (!out.IsZerocoinMint())
                 continue;
 
-            libzerocoin::PublicCoin pubcoin(Params().Zerocoin_Params(false));
+            libzerocoin::PublicCoin pubcoin(Params().Zerocoin_Params());
             CValidationState state;
             if (!TxOutToPublicCoin(out, pubcoin, state))
                 return error("%s: extracting pubcoin from txout failed", __func__);
@@ -4090,6 +4092,7 @@ void CWallet::AutoCombineDust()
     //coins are sectioned by address. This combination code only wants to combine inputs that belong to the same address
     for (map<CBitcoinAddress, vector<COutput> >::iterator it = mapCoinsByAddress.begin(); it != mapCoinsByAddress.end(); it++) {
         vector<COutput> vCoins, vRewardCoins;
+        bool maxSize = false;
         vCoins = it->second;
 
         // We don't want the tx to be refused for being too large
@@ -4117,8 +4120,10 @@ void CWallet::AutoCombineDust()
 
             // Around 180 bytes per input. We use 190 to be certain
             txSizeEstimate += 190;
-            if (txSizeEstimate >= MAX_STANDARD_TX_SIZE - 200)
+            if (txSizeEstimate >= MAX_STANDARD_TX_SIZE - 200) {
+                maxSize = true;
                 break;
+            }
         }
 
         //if no inputs found then return
@@ -4156,7 +4161,7 @@ void CWallet::AutoCombineDust()
         }
 
         //we don't combine below the threshold unless the fees are 0 to avoid paying fees over fees over fees
-        if (nTotalRewardsValue < nAutoCombineThreshold * COIN && nFeeRet > 0)
+        if (!maxSize && nTotalRewardsValue < nAutoCombineThreshold * COIN && nFeeRet > 0)
             continue;
 
         if (!CommitTransaction(wtx, keyChange)) {
@@ -4458,7 +4463,7 @@ bool CWallet::GetZerocoinKey(const CBigNum& bnSerial, CKey& key)
 bool CWallet::CreateZPIVOutPut(libzerocoin::CoinDenomination denomination, CTxOut& outMint, CDeterministicMint& dMint)
 {
     // mint a new coin (create Pedersen Commitment) and extract PublicCoin that is shareable from it
-    libzerocoin::PrivateCoin coin(Params().Zerocoin_Params(false), denomination, false);
+    libzerocoin::PrivateCoin coin(Params().Zerocoin_Params(), denomination, false);
     zwalletMain->GenerateDeterministicZPIV(denomination, coin, dMint);
 
     libzerocoin::PublicCoin pubCoin = coin.getPublicCoin();
@@ -4572,10 +4577,10 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
 {
     // Default error status if not changed below
     receipt.SetStatus(_("Transaction Mint Started"), ZPIV_TXMINT_GENERAL);
-    libzerocoin::ZerocoinParams* paramsAccumulator = Params().Zerocoin_Params(false);
+    libzerocoin::ZerocoinParams* paramsAccumulator = Params().Zerocoin_Params();
 
-    bool isV1Coin = libzerocoin::ExtractVersionFromSerial(zerocoinSelected.GetSerialNumber()) < libzerocoin::PrivateCoin::PUBKEY_VERSION;
-    libzerocoin::ZerocoinParams* paramsCoin = Params().Zerocoin_Params(isV1Coin);
+    //bool isV1Coin = libzerocoin::ExtractVersionFromSerial(zerocoinSelected.GetSerialNumber()) < libzerocoin::PrivateCoin::PUBKEY_VERSION;
+    libzerocoin::ZerocoinParams* paramsCoin = Params().Zerocoin_Params();
     //LogPrintf("%s: *** using v1 coin params=%b, using v1 acc params=%b\n", __func__, isV1Coin, chainActive.Height() < Params().Zerocoin_Block_V2_Start());
 
     // 2. Get pubcoin from the private coin
@@ -4631,7 +4636,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
             //return false;
             LogPrintf("** spend.verify failed, trying with different params\n");
 
-            libzerocoin::CoinSpend spend2(Params().Zerocoin_Params(true), paramsAccumulator, privateCoin, accumulator,
+            libzerocoin::CoinSpend spend2(Params().Zerocoin_Params(), paramsAccumulator, privateCoin, accumulator,
                                           nChecksum, witness, hashTxOut, libzerocoin::SpendType::SPEND);
             LogPrintf("*** spend2 valid=%d\n", spend2.Verify(accumulator));
             return false;

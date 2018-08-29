@@ -26,12 +26,10 @@ public:
     };
 
     const std::string& DataDir() const { return strDataDir; }
-    int RPCPort() const { return nRPCPort; }
 
 protected:
     CBaseChainParams() {}
 
-    int nRPCPort;
     std::string strDataDir;
     Network networkID;
 };

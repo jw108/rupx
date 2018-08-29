@@ -120,7 +120,7 @@ void AddOneShot(string strDest)
 
 unsigned short GetListenPort()
 {
-    return (unsigned short)(GetArg("-port", Params().GetDefaultPort()));
+    return (unsigned short)(GetArg("-port", Params().GetP2PPort()));
 }
 
 // find 'best' local address for a particular peer
@@ -411,7 +411,7 @@ CNode* ConnectNode(CAddress addrConnect, const char* pszDest, bool obfuScationMa
     // Connect
     SOCKET hSocket;
     bool proxyConnectionFailed = false;
-    if (pszDest ? ConnectSocketByName(addrConnect, hSocket, pszDest, Params().GetDefaultPort(), nConnectTimeout, &proxyConnectionFailed) :
+    if (pszDest ? ConnectSocketByName(addrConnect, hSocket, pszDest, Params().GetP2PPort(), nConnectTimeout, &proxyConnectionFailed) :
                   ConnectSocket(addrConnect, hSocket, nConnectTimeout, &proxyConnectionFailed)) {
         if (!IsSelectableSocket(hSocket)) {
             LogPrintf("Cannot create connection: non-selectable socket created (fd >= FD_SETSIZE ?)\n");
@@ -1252,7 +1252,7 @@ void ThreadDNSAddressSeed()
             if (LookupHost(seed.host.c_str(), vIPs)) {
                 BOOST_FOREACH (CNetAddr& ip, vIPs) {
                     int nOneDay = 24 * 3600;
-                    CAddress addr = CAddress(CService(ip, Params().GetDefaultPort()));
+                    CAddress addr = CAddress(CService(ip, Params().GetP2PPort()));
                     addr.nTime = GetTime() - 3 * nOneDay - GetRand(4 * nOneDay); // use a random age between 3 and 7 days old
                     vAdd.push_back(addr);
                     found++;
@@ -1382,7 +1382,7 @@ void ThreadOpenConnections()
                 continue;
 
             // do not allow non-default ports, unless after 50 invalid addresses selected already
-            if (addr.GetPort() != Params().GetDefaultPort() && nTries < 50)
+            if (addr.GetPort() != Params().GetP2PPort() && nTries < 50)
                 continue;
 
             addrConnect = addr;
@@ -1430,7 +1430,7 @@ void ThreadOpenAddedConnections()
         list<vector<CService> > lservAddressesToAdd(0);
         BOOST_FOREACH (string& strAddNode, lAddresses) {
             vector<CService> vservNode(0);
-            if (Lookup(strAddNode.c_str(), vservNode, Params().GetDefaultPort(), fNameLookup, 0)) {
+            if (Lookup(strAddNode.c_str(), vservNode, Params().GetP2PPort(), fNameLookup, 0)) {
                 lservAddressesToAdd.push_back(vservNode);
                 {
                     LOCK(cs_setservAddNodeAddresses);
@@ -1565,7 +1565,7 @@ void static ThreadStakeMinter()
         BitcoinMiner(pwallet, true);
         boost::this_thread::interruption_point();
     } catch (std::exception& e) {
-        LogPrintf("ThreadStakeMinter() exception \n");
+        LogPrintf("ThreadStakeMinter() exception: %s\n", e.what());
     } catch (...) {
         LogPrintf("ThreadStakeMinter() error \n");
     }

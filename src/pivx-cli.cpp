@@ -5,7 +5,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "chainparamsbase.h"
+#include "chainparams.h"
 #include "clientversion.h"
 #include "rpc/client.h"
 #include "rpc/protocol.h"
@@ -144,7 +144,7 @@ static void http_request_done(struct evhttp_request *req, void *ctx)
 UniValue CallRPC(const string& strMethod, const UniValue& params)
 {
     std::string host = GetArg("-rpcconnect", "127.0.0.1");
-    int port = GetArg("-rpcport", BaseParams().RPCPort());
+    int port = GetArg("-rpcport", 51473);//Params().GetRpcPort());
 
     // Create event base
     struct event_base *base = event_base_new(); // TODO RAII

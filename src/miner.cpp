@@ -26,7 +26,6 @@
 #include "accumulators.h"
 #include "blocksignature.h"
 #include "spork.h"
-#include "invalid.h"
 #include "zpivchain.h"
 
 
@@ -113,12 +112,15 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     if (Params().MineBlocksOnDemand())
         pblock->nVersion = GetArg("-blockversion", pblock->nVersion);
 
+    CBlockIndex* pindexPrev = chainActive.Tip();
+    const int nHeight = pindexPrev->nHeight + 1;
+
     // Make sure to create the correct block version after zerocoin is enabled
-    bool fZerocoinActive = GetAdjustedTime() >= Params().Zerocoin_StartTime();
+    bool fZerocoinActive = nHeight >= Params().Zerocoin_StartHeight();
     if (fZerocoinActive)
         pblock->nVersion = 4;
     else
-        pblock->nVersion = 3;
+        pblock->nVersion = 1;
 
     // Create coinbase tx
     CMutableTransaction txNew;
@@ -179,8 +181,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     {
         LOCK2(cs_main, mempool.cs);
 
-        CBlockIndex* pindexPrev = chainActive.Tip();
-        const int nHeight = pindexPrev->nHeight + 1;
         CCoinsViewCache view(pcoinsTip);
 
         // Priority order to process transactions
@@ -261,11 +261,11 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                 }
 
                 //Check for invalid/fraudulent inputs. They shouldn't make it through mempool, but check anyways.
-                if (invalid_out::ContainsOutPoint(txin.prevout)) {
-                    LogPrintf("%s : found invalid input %s in tx %s", __func__, txin.prevout.ToString(), tx.GetHash().ToString());
-                    fMissingInputs = true;
-                    break;
-                }
+                // if (invalid_out::ContainsOutPoint(txin.prevout)) {
+                //     LogPrintf("%s : found invalid input %s in tx %s", __func__, txin.prevout.ToString(), tx.GetHash().ToString());
+                //     fMissingInputs = true;
+                //     break;
+                // }
 
                 const CCoins* coins = view.AccessCoins(txin.prevout.hash);
                 assert(coins);
@@ -358,8 +358,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                 for (const CTxIn& txIn : tx.vin) {
                     if (txIn.scriptSig.IsZerocoinSpend()) {
                         libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txIn);
-                        bool fUseV1Params = libzerocoin::ExtractVersionFromSerial(spend.getCoinSerialNumber()) < libzerocoin::PrivateCoin::PUBKEY_VERSION;
-                        if (!spend.HasValidSerial(Params().Zerocoin_Params(fUseV1Params)))
+                        if (!spend.HasValidSerial(Params().Zerocoin_Params()))
                             fDoubleSerial = true;
                         if (count(vBlockSerials.begin(), vBlockSerials.end(), spend.getCoinSerialNumber()))
                             fDoubleSerial = true;
@@ -452,22 +451,25 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         //Calculate the accumulator checkpoint only if the previous cached checkpoint need to be updated
         uint256 nCheckpoint;
-        uint256 hashBlockLastAccumulated = chainActive[nHeight - (nHeight % 10) - 10]->GetBlockHash();
-        if (nHeight >= pCheckpointCache.first || pCheckpointCache.second.first != hashBlockLastAccumulated) {
-            //For the period before v2 activation, zPIV will be disabled and previous block's checkpoint is all that will be needed
-            pCheckpointCache.second.second = pindexPrev->nAccumulatorCheckpoint;
-            if (pindexPrev->nHeight + 1 >= Params().Zerocoin_Block_V2_Start()) {
-                AccumulatorMap mapAccumulators(Params().Zerocoin_Params(false));
-                if (fZerocoinActive && !CalculateAccumulatorCheckpoint(nHeight, nCheckpoint, mapAccumulators)) {
-                    LogPrintf("%s: failed to get accumulator checkpoint\n", __func__);
-                } else {
-                    // the next time the accumulator checkpoint should be recalculated ( the next height that is multiple of 10)
-                    pCheckpointCache.first = nHeight + (10 - (nHeight % 10));
+        int heightOfBlockLastAccumulated = nHeight - (nHeight % 10) - 10;
+        uint256 hashBlockLastAccumulated = (heightOfBlockLastAccumulated > 0) 
+            ? chainActive[heightOfBlockLastAccumulated]->GetBlockHash() 
+            : chainActive[0]->GetBlockHash();
 
-                    // the block hash of the last block used in the accumulator checkpoint calc. This will handle reorg situations.
-                    pCheckpointCache.second.first = hashBlockLastAccumulated;
-                    pCheckpointCache.second.second = nCheckpoint;
-                }
+        //checkpioint cache key = height of next accumulation
+        //checkpoint cache value = [blockhash last accumulated, accumulator checkpoint value]
+        if (nHeight >= pCheckpointCache.first || pCheckpointCache.second.first != hashBlockLastAccumulated) {
+
+            AccumulatorMap mapAccumulators(Params().Zerocoin_Params());
+            if (!CalculateAccumulatorCheckpoint(nHeight, nCheckpoint, mapAccumulators)) {
+                LogPrintf("%s: failed to get accumulator checkpoint\n", __func__);
+            } else {
+                // the next time the accumulator checkpoint should be recalculated ( the next height that is multiple of 10)
+                pCheckpointCache.first = nHeight + (10 - (nHeight % 10));
+
+                // the block hash of the last block used in the accumulator checkpoint calc. This will handle reorg situations.
+                pCheckpointCache.second.first = hashBlockLastAccumulated;
+                pCheckpointCache.second.second = nCheckpoint;
             }
         }
 
@@ -481,10 +483,10 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             return NULL;
         }
 
-//        if (pblock->IsZerocoinStake()) {
-//            CWalletTx wtx(pwalletMain, pblock->vtx[1]);
-//            pwalletMain->AddToWallet(wtx);
-//        }
+       if (pblock->IsZerocoinStake()) {
+           CWalletTx wtx(pwalletMain, pblock->vtx[1]);
+           pwalletMain->AddToWallet(wtx);
+       }
     }
 
     return pblocktemplate.release();
@@ -590,12 +592,16 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 fMintableCoins = pwallet->MintableCoins();
             }
 
-            if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
+            if (chainActive.Tip()->nHeight < Params().Last_PoW_Block()) {
                 MilliSleep(5000);
                 continue;
             }
 
-            while (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced()) {
+            while (/*vNodes.empty() || */ 
+                    pwallet->IsLocked() || 
+                    !fMintableCoins || 
+                    (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) 
+                    /*|| !masternodeSync.IsSynced() */) {
                 nLastCoinStakeSearchInterval = 0;
                 // Do a separate 1 minute check here to ensure fMintableCoins is updated
                 if (!fMintableCoins) {
@@ -770,10 +776,7 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)
 
     if (nThreads < 0) {
         // In regtest threads defaults to 1
-        if (Params().DefaultMinerThreads())
-            nThreads = Params().DefaultMinerThreads();
-        else
-            nThreads = boost::thread::hardware_concurrency();
+        nThreads = boost::thread::hardware_concurrency();
     }
 
     if (minerThreads != NULL) {

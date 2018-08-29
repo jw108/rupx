@@ -48,17 +48,15 @@ public:
     const uint256& HashGenesisBlock() const { return hashGenesisBlock; }
     const MessageStartChars& MessageStart() const { return pchMessageStart; }
     const std::vector<unsigned char>& AlertKey() const { return vAlertPubKey; }
-    int GetDefaultPort() const { return nDefaultPort; }
+    int GetP2PPort() const { return nP2pPort; }
+    int GetRpcPort() const { return nRpcPort;}
     const uint256& ProofOfWorkLimit() const { return bnProofOfWorkLimit; }
-    int SubsidyHalvingInterval() const { return nSubsidyHalvingInterval; }
     /** Used to check majorities for block version upgrade */
     int EnforceBlockUpgradeMajority() const { return nEnforceBlockUpgradeMajority; }
     int RejectBlockOutdatedMajority() const { return nRejectBlockOutdatedMajority; }
     int ToCheckBlockUpgradeMajority() const { return nToCheckBlockUpgradeMajority; }
     int MaxReorganizationDepth() const { return nMaxReorganizationDepth; }
 
-    /** Used if GenerateBitcoins is called with a negative number of threads */
-    int DefaultMinerThreads() const { return nMinerThreads; }
     const CBlock& GenesisBlock() const { return genesis; }
     /** Make miner wait to have peers to avoid wasting work */
     bool MiningRequiresPeers() const { return fMiningRequiresPeers; }
@@ -93,18 +91,14 @@ public:
 
     /** Spork key and Masternode Handling **/
     std::string SporkKey() const { return strSporkKey; }
-    std::string SporkKeyOld() const { return strSporkKeyOld; }
-    int64_t NewSporkStart() const { return nEnforceNewSporkKey; }
-    int64_t RejectOldSporkKey() const { return nRejectOldSporkKey; }
     std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
-    int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
     int64_t Budget_Fee_Confirmations() const { return nBudget_Fee_Confirmations; }
 
     CBaseChainParams::Network NetworkID() const { return networkID; }
 
     /** Zerocoin **/
     std::string Zerocoin_Modulus() const { return zerocoinModulus; }
-    libzerocoin::ZerocoinParams* Zerocoin_Params(bool useModulusV1) const;
+    libzerocoin::ZerocoinParams* Zerocoin_Params() const;
     int Zerocoin_MaxSpendsPerTransaction() const { return nMaxZerocoinSpendsPerTransaction; }
     CAmount Zerocoin_MintFee() const { return nMinZerocoinMintFee; }
     int Zerocoin_MintRequiredConfirmations() const { return nMintRequiredConfirmations; }
@@ -114,17 +108,10 @@ public:
     int Zerocoin_RequiredStakeDepth() const { return nZerocoinRequiredStakeDepth; }
 
     /** Height or Time Based Activations **/
-    int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
-    int LAST_POW_BLOCK() const { return nLastPOWBlock; }
-    int Zerocoin_StartHeight() const { return nZerocoinStartHeight; }
-    int Zerocoin_Block_EnforceSerialRange() const { return nBlockEnforceSerialRange; }
-    int Zerocoin_Block_RecalculateAccumulators() const { return nBlockRecalculateAccumulators; }
-    int Zerocoin_Block_FirstFraudulent() const { return nBlockFirstFraudulent; }
-    int Zerocoin_Block_LastGoodCheckpoint() const { return nBlockLastGoodCheckpoint; }
-    int Zerocoin_StartTime() const { return nZerocoinStartTime; }
-    int Block_Enforce_Invalid() const { return nBlockEnforceInvalidUTXO; }
-    int Zerocoin_Block_V2_Start() const { return nBlockZerocoinV2; }
-    CAmount InvalidAmountFiltered() const { return nInvalidAmountFiltered; };
+    //int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
+    int Last_PoW_Block() const { return nLastPoWBlock; }
+    int Zerocoin_StartHeight() const { return Last_PoW_Block() + 1; }
+    unsigned int Stake_Min_Age() const { return nStakeMinAge; }
 
 protected:
     CChainParams() {}
@@ -133,7 +120,8 @@ protected:
     MessageStartChars pchMessageStart;
     //! Raw pub key bytes for the broadcast alert signing key.
     std::vector<unsigned char> vAlertPubKey;
-    int nDefaultPort;
+    int nP2pPort;
+    int nRpcPort;
     uint256 bnProofOfWorkLimit;
     int nMaxReorganizationDepth;
     int nSubsidyHalvingInterval;
@@ -142,10 +130,10 @@ protected:
     int nToCheckBlockUpgradeMajority;
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
-    int nLastPOWBlock;
+    int nLastPoWBlock;
     int nMasternodeCountDrift;
     int nMaturity;
-    int nModifierUpdateBlock;
+    //int nModifierUpdateBlock;
     CAmount nMaxMoneyOut;
     int nMinerThreads;
     std::vector<CDNSSeedData> vSeeds;
@@ -164,30 +152,18 @@ protected:
     bool fHeadersFirstSyncingActive;
     int nPoolMaxTransactions;
     std::string strSporkKey;
-    std::string strSporkKeyOld;
-    int64_t nEnforceNewSporkKey;
-    int64_t nRejectOldSporkKey;
     std::string strObfuscationPoolDummyAddress;
-    int64_t nStartMasternodePayments;
     std::string zerocoinModulus;
     int nMaxZerocoinSpendsPerTransaction;
     CAmount nMinZerocoinMintFee;
-    CAmount nInvalidAmountFiltered;
     int nMintRequiredConfirmations;
     int nRequiredAccumulation;
     int nDefaultSecurityLevel;
     int nZerocoinHeaderVersion;
     int64_t nBudget_Fee_Confirmations;
     int nZerocoinStartHeight;
-    int nZerocoinStartTime;
     int nZerocoinRequiredStakeDepth;
-
-    int nBlockEnforceSerialRange;
-    int nBlockRecalculateAccumulators;
-    int nBlockFirstFraudulent;
-    int nBlockLastGoodCheckpoint;
-    int nBlockEnforceInvalidUTXO;
-    int nBlockZerocoinV2;
+    unsigned int nStakeMinAge;
 };
 
 /**
@@ -199,11 +175,6 @@ protected:
 class CModifiableParams
 {
 public:
-    //! Published setters to allow changing values in unit test cases
-    virtual void setSubsidyHalvingInterval(int anSubsidyHalvingInterval) = 0;
-    virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority) = 0;
-    virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority) = 0;
-    virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority) = 0;
     virtual void setDefaultConsistencyChecks(bool aDefaultConsistencyChecks) = 0;
     virtual void setAllowMinDifficultyBlocks(bool aAllowMinDifficultyBlocks) = 0;
     virtual void setSkipProofOfWorkCheck(bool aSkipProofOfWorkCheck) = 0;

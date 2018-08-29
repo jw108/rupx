@@ -231,7 +231,7 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
         return true;
     }
 
-    const CTransaction& txNew = (nBlockHeight > Params().LAST_POW_BLOCK() ? block.vtx[1] : block.vtx[0]);
+    const CTransaction& txNew = (nBlockHeight > Params().Last_PoW_Block() ? block.vtx[1] : block.vtx[0]);
 
     //check if it's a budget block
     if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS)) {
@@ -290,56 +290,70 @@ std::string GetRequiredPaymentsString(int nBlockHeight)
     }
 }
 
-void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake, bool fZPIVStake)
+void CMasternodePayments::FillBlockPayee(CMutableTransaction &txNew, int64_t nFees, bool fProofOfStake, bool fZBaseStake)
 {
-    CBlockIndex* pindexPrev = chainActive.Tip();
-    if (!pindexPrev) return;
+    CBlockIndex *pindexPrev = chainActive.Tip();
+    if (!pindexPrev)
+        return;
 
-    bool hasPayment = true;
     CScript payee;
+    bool mnPaymentsEnforced = IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT);
 
-    //spork
-    if (!masternodePayments.GetBlockPayee(pindexPrev->nHeight + 1, payee)) {
-        //no masternode detected
-        CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
-        if (winningNode) {
+    if (mnPaymentsEnforced && !masternodePayments.GetBlockPayee(pindexPrev->nHeight + 1, payee))
+    {
+        CMasternode *winningNode = mnodeman.GetCurrentMasterNode(1);
+        if (winningNode)
+        {
             payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
-        } else {
-            LogPrint("masternode","CreateNewBlock: Failed to detect masternode to pay\n");
-            hasPayment = false;
         }
     }
 
-    CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
-    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, 0, fZPIVStake);
+    int mnDriftCount = mnPaymentsEnforced
+                           // Get a stable number of masternodes by ignoring newly activated (< 8000 sec old) masternodes
+                           ? mnodeman.stable_size() + Params().MasternodeCountDrift()
+                           //account for the fact that all peers do not see the same masternode count. A allowance of being off our masternode count is given
+                           //we only need to look at an increased masternode count because as count increases, the reward decreases. This code only checks
+                           //for mnPayment >= required, so it only makes sense to check the max node count allowed.
+                           : mnodeman.size() + Params().MasternodeCountDrift();
 
-    if (hasPayment) {
-        if (fProofOfStake) {
-            /**For Proof Of Stake vout[0] must be null
-             * Stake reward can be split into many different outputs, so we must
-             * use vout.size() to align with several different cases.
-             * An additional output is appended as the masternode payment
+    CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
+    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, mnDriftCount, fZBaseStake);
+    CAmount minerStakerPayment = blockValue - masternodePayment;
+
+    if (fProofOfStake)
+    {
+        /**For Proof Of Stake vout[0] must be null
+         * Stake reward can be split into many different outputs, so we must
+            * use vout.size() to align with several different cases.
+            * An additional output is appended as the masternnode payment
              */
-            unsigned int i = txNew.vout.size();
+        unsigned int i = txNew.vout.size();
+
+        if (payee.size() > 0)
+        {
             txNew.vout.resize(i + 1);
             txNew.vout[i].scriptPubKey = payee;
             txNew.vout[i].nValue = masternodePayment;
-
-            //subtract mn payment from the stake reward
-            if (!txNew.vout[1].IsZerocoinMint())
-                txNew.vout[i - 1].nValue -= masternodePayment;
-        } else {
+            txNew.vout[i - 1].nValue = minerStakerPayment;
+        }
+        else
+        {
+            txNew.vout[i].nValue = blockValue;
+        }
+    }
+    else /*PoW*/
+    {
+        if (payee.size() > 0)
+        {
             txNew.vout.resize(2);
             txNew.vout[1].scriptPubKey = payee;
             txNew.vout[1].nValue = masternodePayment;
-            txNew.vout[0].nValue = blockValue - masternodePayment;
+            txNew.vout[0].nValue = minerStakerPayment;
         }
-
-        CTxDestination address1;
-        ExtractDestination(payee, address1);
-        CBitcoinAddress address2(address1);
-
-        LogPrint("masternode","Masternode payment of %s to %s\n", FormatMoney(masternodePayment).c_str(), address2.ToString().c_str());
+        else
+        {
+            txNew.vout[0].nValue = blockValue;
+        }
     }
 }
 

@@ -921,9 +921,9 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
 
     //get block value and calculate from that
     CAmount nSubsidy = 0;
-    if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
+    if (nHeight <= Params().Last_PoW_Block() && nHeight >= 151200) {
         nSubsidy = 50 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
+    } else if (nHeight <= 302399 && nHeight > Params().Last_PoW_Block()) {
         nSubsidy = 50 * COIN;
     } else if (nHeight <= 345599 && nHeight >= 302400) {
         nSubsidy = 45 * COIN;
@@ -941,7 +941,7 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
         nSubsidy = 15 * COIN;
     } else if (nHeight <= 647999 && nHeight >= 604800) {
         nSubsidy = 10 * COIN;
-    } else if (nHeight >= Params().Zerocoin_Block_V2_Start()) {
+    } else if (nHeight >= Params().Zerocoin_StartHeight()) {
         nSubsidy = 10 * COIN;
     } else {
         nSubsidy = 5 * COIN;

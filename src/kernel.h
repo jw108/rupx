@@ -10,17 +10,17 @@
 
 
 // MODIFIER_INTERVAL: time to elapse before new modifier is computed
-static const unsigned int MODIFIER_INTERVAL = 60;
+static const unsigned int MODIFIER_INTERVAL = 1;
 static const unsigned int MODIFIER_INTERVAL_TESTNET = 60;
 extern unsigned int nModifierInterval;
 extern unsigned int getIntervalVersion(bool fTestNet);
 
 // MODIFIER_INTERVAL_RATIO:
 // ratio of group interval length between the last group and the first group
-static const int MODIFIER_INTERVAL_RATIO = 3;
+static const int MODIFIER_INTERVAL_RATIO = 1;
 
 // Compute the hash modifier for proof-of-stake
-bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake);
+bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime);
 bool ComputeNextStakeModifier(const CBlockIndex* pindexPrev, uint64_t& nStakeModifier, bool& fGeneratedStakeModifier);
 
 bool CheckStake(const CDataStream& ssUniqueID, CAmount nValueIn, const uint64_t nStakeModifier, const uint256& bnTarget, unsigned int nTimeBlockFrom, unsigned int& nTimeTx, uint256& hashProofOfStake);
