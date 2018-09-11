@@ -128,3 +128,12 @@ qa/pull-tester/test.*/*
 .idea
 CMakeLists.txt
 cmake-build-debug
+src/config/rupaya-config.h.in
+src/config/rupaya-config.h
+src/rupaya-cli
+src/rupaya-tx
+src/rupayad
+src/test/test_rupaya
+src/config/rupaya-config.h.in
+src/qt/rupaya-qt
+src/qt/test/test_rupaya-qt

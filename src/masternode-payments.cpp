@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The PIVX Developers 
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -269,7 +269,7 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
 }
 
 
-void FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStake, bool fZPIVStake)
+void FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStake, bool fZRUPXStake)
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (!pindexPrev) return;
@@ -277,7 +277,7 @@ void FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStak
     if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(pindexPrev->nHeight + 1)) {
         budget.FillBlockPayee(txNew, nFees, fProofOfStake);
     } else {
-        masternodePayments.FillBlockPayee(txNew, nFees, fProofOfStake, fZPIVStake);
+        masternodePayments.FillBlockPayee(txNew, nFees, fProofOfStake, fZRUPXStake);
     }
 }
 
@@ -290,70 +290,58 @@ std::string GetRequiredPaymentsString(int nBlockHeight)
     }
 }
 
-void CMasternodePayments::FillBlockPayee(CMutableTransaction &txNew, int64_t nFees, bool fProofOfStake, bool fZBaseStake)
+void CMasternodePayments::FillBlockPayee(CMutableTransaction &txNew, int64_t nFees, bool fProofOfStake, bool fZRupxStake)
 {
-    CBlockIndex *pindexPrev = chainActive.Tip();
-    if (!pindexPrev)
-        return;
+    CBlockIndex* pindexPrev = chainActive.Tip();
+    if (!pindexPrev) return;
 
+    bool hasPayment = true;
     CScript payee;
-    bool mnPaymentsEnforced = IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT);
 
-    if (mnPaymentsEnforced && !masternodePayments.GetBlockPayee(pindexPrev->nHeight + 1, payee))
-    {
-        CMasternode *winningNode = mnodeman.GetCurrentMasterNode(1);
-        if (winningNode)
-        {
+    //spork
+    if (!masternodePayments.GetBlockPayee(pindexPrev->nHeight + 1, payee)) {
+        //no masternode detected
+        CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
+        if (winningNode) {
             payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
+        } else {
+            LogPrint("masternode","CreateNewBlock: Failed to detect masternode to pay\n");
+            hasPayment = false;
         }
     }
 
-    int mnDriftCount = mnPaymentsEnforced
-                           // Get a stable number of masternodes by ignoring newly activated (< 8000 sec old) masternodes
-                           ? mnodeman.stable_size() + Params().MasternodeCountDrift()
-                           //account for the fact that all peers do not see the same masternode count. A allowance of being off our masternode count is given
-                           //we only need to look at an increased masternode count because as count increases, the reward decreases. This code only checks
-                           //for mnPayment >= required, so it only makes sense to check the max node count allowed.
-                           : mnodeman.size() + Params().MasternodeCountDrift();
-
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
-    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, mnDriftCount, fZBaseStake);
-    CAmount minerStakerPayment = blockValue - masternodePayment;
+    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, 0, fZRupxStake);
 
-    if (fProofOfStake)
-    {
-        /**For Proof Of Stake vout[0] must be null
-         * Stake reward can be split into many different outputs, so we must
-            * use vout.size() to align with several different cases.
-            * An additional output is appended as the masternnode payment
+    if (hasPayment) {
+        if (fProofOfStake) {
+            /**For Proof Of Stake vout[0] must be null
+             * Stake reward can be split into many different outputs, so we must
+             * use vout.size() to align with several different cases.
+             * An additional output is appended as the masternode payment
              */
-        unsigned int i = txNew.vout.size();
-
-        if (payee.size() > 0)
-        {
+            unsigned int i = txNew.vout.size();
             txNew.vout.resize(i + 1);
             txNew.vout[i].scriptPubKey = payee;
             txNew.vout[i].nValue = masternodePayment;
-            txNew.vout[i - 1].nValue = minerStakerPayment;
-        }
-        else
-        {
-            txNew.vout[i].nValue = blockValue;
-        }
-    }
-    else /*PoW*/
-    {
-        if (payee.size() > 0)
-        {
+
+            //subtract mn payment from the stake reward
+            if (!txNew.vout[1].IsZerocoinMint())
+                txNew.vout[i - 1].nValue -= masternodePayment;
+        } else {
             txNew.vout.resize(2);
             txNew.vout[1].scriptPubKey = payee;
             txNew.vout[1].nValue = masternodePayment;
-            txNew.vout[0].nValue = minerStakerPayment;
+            txNew.vout[0].nValue = blockValue - masternodePayment;
         }
-        else
-        {
-            txNew.vout[0].nValue = blockValue;
-        }
+
+        CTxDestination address1;
+        ExtractDestination(payee, address1);
+        CBitcoinAddress address2(address1);
+
+        LogPrint("masternode","Masternode payment of %s to %s\n", FormatMoney(masternodePayment).c_str(), address2.ToString().c_str());
+    } else if( (pindexPrev->nHeight < Params().Last_PoW_Block()+50) && !IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) {
+        txNew.vout[0].nValue = blockValue;
     }
 }
 
