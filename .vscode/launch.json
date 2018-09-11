@@ -8,7 +8,7 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/src/qt/pivx-qt",
+            "program": "${workspaceFolder}/src/qt/rupaya-qt",
             "args": ["-debug", "-printstakemodifier"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
