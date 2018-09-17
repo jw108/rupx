@@ -932,7 +932,7 @@ bool CheckZerocoinMint(const uint256& txHash, const CTxOut& txout, CValidationSt
 
 bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin, const CBlockIndex* pindex)
 {
-    if (pindex->nHeight >= Params().Zerocoin_StartHeight() && Params().NetworkID() != CBaseChainParams::TESTNET) {
+    if (/*pindex->nHeight >= Params().Zerocoin_StartHeight() &&*/ Params().NetworkID() != CBaseChainParams::TESTNET) {
         //See if this coin has already been added to the blockchain
         uint256 txid;
         int nHeight;
@@ -948,7 +948,7 @@ bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin,
 bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend, CBlockIndex* pindex, const uint256& hashBlock)
 {
     //Check to see if the zRUPX is properly signed
-    if (pindex->nHeight >= Params().Zerocoin_StartHeight()) {
+    //if (pindex->nHeight >= Params().Zerocoin_StartHeight()) {
         if (!spend.HasValidSignature())
             return error("%s: V2 zRUPX spend does not have a valid signature", __func__);
 
@@ -959,7 +959,7 @@ bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend
             return error("%s: trying to spend zRUPX without the correct spend type. txid=%s", __func__,
                 tx.GetHash().GetHex());
         }
-    }
+    //}
 
     //Reject serial's that are already in the blockchain
     int nHeightTx = 0;
@@ -1055,7 +1055,7 @@ bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidati
     return fValidated;
 }
 
-bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, CValidationState& state)
+bool CheckTransaction(const CTransaction& tx, CValidationState& state)
 {
     // Basic checks that don't depend on any context
     if (tx.vin.empty())
@@ -1089,15 +1089,15 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, CValidationS
         if (!MoneyRange(nValueOut))
             return state.DoS(100, error("CheckTransaction() : txout total out of range"),
                 REJECT_INVALID, "bad-txns-txouttotal-toolarge");
-        if (fZerocoinActive && txout.IsZerocoinMint()) {
+        if (txout.IsZerocoinMint()) {
             if (!CheckZerocoinMint(tx.GetHash(), txout, state, true))
                 return state.DoS(100, error("CheckTransaction() : invalid zerocoin mint"));
         }
-        if (fZerocoinActive && txout.scriptPubKey.IsZerocoinSpend())
+        if (txout.scriptPubKey.IsZerocoinSpend())
             nZCSpendCount++;
     }
 
-    if (fZerocoinActive) {
+    //if (fZerocoinActive) {
         if (nZCSpendCount > Params().Zerocoin_MaxSpendsPerTransaction())
             return state.DoS(100, error("CheckTransaction() : there are more zerocoin spends than are allowed in one transaction"));
 
@@ -1114,7 +1114,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, CValidationS
             if (!CheckZerocoinSpend(tx, fVerifySignature, state))
                 return state.DoS(100, error("CheckTransaction() : invalid zerocoin spend"));
         }
-    }
+    //}
 
     // Check for duplicate inputs
     set<COutPoint> vInOutPoints;
@@ -1133,12 +1133,12 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, CValidationS
         if ((tx.vin[0].scriptSig.size() < 2 && IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) || tx.vin[0].scriptSig.size() > 150)
             return state.DoS(100, error("CheckTransaction() : coinbase script size=%d", tx.vin[0].scriptSig.size()),
                 REJECT_INVALID, "bad-cb-length");
-    } else if (fZerocoinActive && tx.IsZerocoinSpend()) {
+    } else if (tx.IsZerocoinSpend()) {
         if (tx.vin.size() < 1 || static_cast<int>(tx.vin.size()) > Params().Zerocoin_MaxSpendsPerTransaction())
             return state.DoS(10, error("CheckTransaction() : Zerocoin Spend has more than allowed txin's"), REJECT_INVALID, "bad-zerocoinspend");
     } else {
         BOOST_FOREACH (const CTxIn& txin, tx.vin)
-            if (txin.prevout.IsNull() && (fZerocoinActive && !txin.scriptSig.IsZerocoinSpend()))
+            if (txin.prevout.IsNull() && !txin.scriptSig.IsZerocoinSpend())
                 return state.DoS(10, error("CheckTransaction() : prevout is null"),
                     REJECT_INVALID, "bad-txns-prevout-null");
     }
@@ -1215,7 +1215,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
     if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE) && tx.ContainsZerocoins())
         return state.DoS(10, error("AcceptToMemoryPool : Zerocoin transactions are temporarily disabled for maintenance"), REJECT_INVALID, "bad-tx");
 
-    if (!CheckTransaction(tx, chainActive.Height() >= Params().Zerocoin_StartHeight(), state))
+    if (!CheckTransaction(tx, state))
         return state.DoS(100, error("AcceptToMemoryPool: : CheckTransaction failed"), REJECT_INVALID, "bad-tx");
 
     // Coinbase is only valid in a block, not as a loose transaction
@@ -1462,7 +1462,7 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
         *pfMissingInputs = false;
 
 
-    if (!CheckTransaction(tx, chainActive.Height() >= Params().Zerocoin_StartHeight(), state))
+    if (!CheckTransaction(tx, state))
         return error("AcceptableInputs: : CheckTransaction failed");
 
     // Coinbase is only valid in a block, not as a loose transaction
@@ -1812,13 +1812,7 @@ int64_t GetBlockValue(int nHeight)
     
     if (nHeight == 0) {
         nSubsidy = 39000000 * COIN;
-    } else if (nHeight < 5000 && nHeight > 0) {
-        nSubsidy = 0.1 * COIN;
-    } else if (nHeight < 10000 && nHeight >= 5000) {
-        nSubsidy = 0.5 * COIN;
-    } else if (nHeight < 15000 && nHeight >= 10000) {
-        nSubsidy = 1 * COIN;
-    } else if (nHeight < 20000 && nHeight >= 15000) {
+    } else if (nHeight < 20000 && nHeight >= 0) {
         nSubsidy = 5 * COIN;
     } else if (nHeight < 100000 && nHeight >= 20000) {
         nSubsidy = 56 * COIN;
@@ -1848,16 +1842,9 @@ int64_t GetBlockValue(int nHeight)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZRupxStake)
 {
-    if (nMasternodeCount == 0) return 0;
-    int64_t ret = 0;
-    
-    if (nHeight < 20000) {
-        ret = blockValue * 0.10;
-    } else {
-        ret = blockValue * 0.75;
-    }
-    
-    return ret;
+    return isZRupxStake 
+        ? blockValue * 0.65 
+        : blockValue * 0.75;
 }
 
 bool IsInitialBlockDownload()
@@ -2372,7 +2359,7 @@ void ThreadScriptCheck()
 
 void RecalculateZRUPXMinted()
 {
-    CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
+    CBlockIndex* pindex = chainActive.Genesis();
     int nHeightEnd = chainActive.Height();
     while (true) {
         if (pindex->nHeight % 1000 == 0)
@@ -2399,7 +2386,7 @@ void RecalculateZRUPXMinted()
 
 void RecalculateZRUPXSpent()
 {
-    CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
+    CBlockIndex* pindex = chainActive.Genesis();
     while (true) {
         if (pindex->nHeight % 1000 == 0)
             LogPrintf("%s : block %d...\n", __func__, pindex->nHeight);
@@ -2440,8 +2427,8 @@ bool RecalculateRUPAYASupply(int nHeightStart)
 
     CBlockIndex* pindex = chainActive[nHeightStart];
     CAmount nSupplyPrev = pindex->pprev->nMoneySupply;
-    if (nHeightStart == Params().Zerocoin_StartHeight())
-        nSupplyPrev = CAmount(5449796547496199);
+    // if (nHeightStart == Params().Zerocoin_StartHeight())
+    //     nSupplyPrev = CAmount(5449796547496199);
 
     while (true) {
         if (pindex->nHeight % 1000 == 0)
@@ -2514,12 +2501,12 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
         //int nZerocoinStart = Params().Zerocoin_Block_V2_Start();
 
         // find each checkpoint that is missing
-        CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
+        CBlockIndex* pindex = chainActive.Genesis();
         while (pindex) {
             uiInterface.ShowProgress(
                 _("Calculating missing accumulators..."), 
                 std::max(1, 
-                    std::min(99, (int)((double)(pindex->nHeight - Params().Zerocoin_StartHeight()) / (double)(chainActive.Height() - Params().Zerocoin_StartHeight()) * 100))));
+                    std::min(99, (int)((double)pindex->nHeight / (double)chainActive.Height() * 100))));
 
             if (ShutdownRequested())
                 return false;
@@ -2807,13 +2794,6 @@ bool ConnectBlock(
         vPos.push_back(std::make_pair(tx.GetHash(), pos));
         pos.nTxOffset += ::GetSerializeSize(tx, SER_DISK, CLIENT_VERSION);
     }
-
-    //A one-time event where money supply counts were off and recalculated on a certain block.
-    // if (pindex->nHeight == Params().Zerocoin_Block_RecalculateAccumulators() + 1) {
-    //     RecalculateZRUPXMinted();
-    //     RecalculateZRUPXSpent();
-    //     RecalculateRUPAYASupply(Params().Zerocoin_StartHeight());
-    // }
 
     //Track zRUPX money supply in the block index
     if (!UpdateZRUPXSupply(block, pindex))
@@ -3881,10 +3861,9 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     }
 
     // Check transactions
-    bool fZerocoinActive = nHeight >= Params().Zerocoin_StartHeight();
     vector<CBigNum> vBlockSerials;
     for (const CTransaction& tx : block.vtx) {
-        if (!CheckTransaction(tx, fZerocoinActive, state))
+        if (!CheckTransaction(tx, state))
             return error("CheckBlock() : CheckTransaction failed");
 
         // double check that there are no double spent zRUPX spends in this block
@@ -3906,7 +3885,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     BOOST_FOREACH (const CTransaction& tx, block.vtx) {
         nSigOps += GetLegacySigOpCount(tx);
     }
-    unsigned int nMaxBlockSigOps = fZerocoinActive ? MAX_BLOCK_SIGOPS_CURRENT : MAX_BLOCK_SIGOPS_LEGACY;
+    unsigned int nMaxBlockSigOps = MAX_BLOCK_SIGOPS_CURRENT;
     if (nSigOps > nMaxBlockSigOps)
         return state.DoS(100, error("CheckBlock() : out-of-bounds SigOpCount"),
             REJECT_INVALID, "bad-blk-sigops", true);
@@ -4024,7 +4003,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
 
     // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
     // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
-    if (block.nVersion >= 2 &&
+    if (block.nVersion >= 2 && nHeight >= 2000 &&
         CBlockIndex::IsSuperMajority(2, pindexPrev, Params().EnforceBlockUpgradeMajority())) {
         CScript expect = CScript() << nHeight;
         if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
@@ -4098,8 +4077,8 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
 
 bool ContextualCheckZerocoinStake(int nHeight, CStakeInput* stake)
 {
-    if (nHeight < Params().Zerocoin_StartHeight())
-        return error("%s: zRUPX stake block is less than allowed start height", __func__);
+    // if (nHeight < Params().Zerocoin_StartHeight())
+    //     return error("%s: zRUPX stake block is less than allowed start height", __func__);
 
     if (CZRupxStake* zRUPX = dynamic_cast<CZRupxStake*>(stake)) {
         CBlockIndex* pindexFrom = zRUPX->GetIndexFrom();
@@ -4355,7 +4334,11 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
 bool TestBlockValidity(CValidationState& state, const CBlock& block, CBlockIndex* const pindexPrev, bool fCheckPOW, bool fCheckMerkleRoot)
 {
     AssertLockHeld(cs_main);
-    assert(pindexPrev == chainActive.Tip());
+    //assert(pindexPrev == chainActive.Tip());
+    if(pindexPrev != chainActive.Tip()) {
+        LogPrint("Error: Block %s failed %s because the active tip is not what was expected.", block.GetHash().GetHex().c_str(), __func__);
+        return false;
+    }
 
     CCoinsViewCache viewNew(pcoinsTip);
     CBlockIndex indexDummy(block);

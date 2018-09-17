@@ -10,6 +10,7 @@
 #include "random.h"
 #include "util.h"
 #include "utilstrencodings.h"
+#include "pow.h"
 
 #include <assert.h>
 
@@ -25,9 +26,7 @@ struct SeedSpec6 {
 
 #include "chainparamsseeds.h"
 
-/**
- * Main network
- */
+
 
 //! Convert the pnSeeds6 array into usable address objects.
 static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data, unsigned int count)
@@ -53,7 +52,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (233, uint256("0x2604e2684cd5d9cef43a8052e9ba6e55dfbe1f5c4058df1602b30a5c3e4a6308")); //last block with skipPoW.
+    (0, uint256("0x001")); 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1536849316, // * UNIX timestamp of last checkpoint block
@@ -111,13 +110,13 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 20; // RUPAYA starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
-        nEnforceBlockUpgradeMajority = 750;
+        nEnforceBlockUpgradeMajority = 1;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         //nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
-        nMaturity = 5;
+        nMaturity = 10;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 82000000 * COIN;
 
@@ -139,31 +138,26 @@ public:
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
-         *
-         * CBlock(hash=00000ffd590b14, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=e0028e, nTime=1390095618, nBits=1e0ffff0, nNonce=28917698, vtx=1)
-         *   CTransaction(hash=e0028e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-         *     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d01044c5957697265642030392f4a616e2f3230313420546865204772616e64204578706572696d656e7420476f6573204c6976653a204f76657273746f636b2e636f6d204973204e6f7720416363657074696e6720426974636f696e73)
-         *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
-         *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "In the name of God, the Most Gracious, the Most Merciful ...";
+        const char* pszTimestamp = "Bitcoin Breaks 7500 USD Point After a Week of Solid Growth";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 250 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04c3783e49ae160c70c7943b59ad043144bf1c55f3b098edb4f81bec0995aeb1006d39526bcb917879045290826c6a768a7badfa36942c59737024fb6a0aa946e7") << OP_CHECKSIG;
+        txNew.vout[0].nValue = 50 * COIN;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
-        genesis.nVersion = 1;
-        genesis.nTime = 1536777235;
-        genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 735291;
+        genesis.nVersion = 4;
+        genesis.nAccumulatorCheckpoint = 0;
+        genesis.nTime = 1533927507;
+        genesis.nBits = 504365040;
+        genesis.nNonce = 462387;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000477d4ab031378eebe36fabe9927fb41d702e6ece9d4290e0b5a43bcc9aa"));
-        assert(genesis.hashMerkleRoot == uint256("0xd74b2b1ba68022ccb7033d224b8c6a772c75facc467c3456d59faa291010bd7f"));
+        assert(hashGenesisBlock == uint256("0x000004a52cbc6eeab60f685b9eced6322f08054fde6e66f84be90f1aaced149a"));
+        assert(genesis.hashMerkleRoot == uint256("0x4dca438430ad9ca73a7b6f5403c4e1ba597501828f3ea5700f23b994facc78b7"));
 
         vSeeds.push_back(CDNSSeedData("node-01.nethash.io", "node-01.nethash.io"));
         vSeeds.push_back(CDNSSeedData("node-02.nethash.io", "node-02.nethash.io"));
@@ -198,7 +192,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04ea22754eced5252fd71def2b9f690459a8a7eb4f1335638be4723f75ae340d6b6df4b6ed29e443cb767ef38459435a3b636d2dd3baa4c6875f8f5b58e0d96930";
         //strSporkKeyOld = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
-        strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
+        strObfuscationPoolDummyAddress = "RHD3HxhEkWGsupqZeN1p3QkvZq7EjQTCQH";
         //nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
 
         /** Zerocoin */
@@ -215,7 +209,7 @@ public:
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zrupx to be stakable
-        nStakeMinAge = 60; //The number of seconds that a utxo must be old before it can qualify for staking
+        nStakeMinAge = 60 * 60; //The number of seconds that a utxo must be old before it can qualify for staking
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 

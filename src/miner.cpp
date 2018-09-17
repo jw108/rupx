@@ -114,13 +114,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
     CBlockIndex* pindexPrev = chainActive.Tip();
     const int nHeight = pindexPrev->nHeight + 1;
-
-    // Make sure to create the correct block version after zerocoin is enabled
-    bool fZerocoinActive = nHeight >= Params().Zerocoin_StartHeight();
-    if (fZerocoinActive)
-        pblock->nVersion = 4;
-    else
-        pblock->nVersion = 1;
+    pblock->nVersion = 4;
 
     // Create coinbase tx
     CMutableTransaction txNew;
@@ -454,7 +448,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         int heightOfBlockLastAccumulated = nHeight - (nHeight % 10) - 10;
         uint256 hashBlockLastAccumulated = (heightOfBlockLastAccumulated > 0) 
             ? chainActive[heightOfBlockLastAccumulated]->GetBlockHash() 
-            : chainActive[0]->GetBlockHash();
+            : chainActive.Genesis()->GetBlockHash();
 
         //checkpioint cache key = height of next accumulation
         //checkpoint cache value = [blockhash last accumulated, accumulator checkpoint value]

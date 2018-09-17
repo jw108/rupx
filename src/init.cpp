@@ -1441,29 +1441,29 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 // Drop all information from the zerocoinDB and repopulate
                 if (GetBoolArg("-reindexzerocoin", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
+                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
                         uiInterface.InitMessage(_("Reindexing zerocoin database..."));
                         std::string strError = ReindexZerocoinDB();
                         if (strError != "") {
                             strLoadError = strError;
                             break;
                         }
-                    }
+                    //}
                 }
 
                 // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
                 if (GetBoolArg("-reindexmoneysupply", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
+                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
                         RecalculateZRUPXMinted();
                         RecalculateZRUPXSpent();
-                    }
+                    //}
                     RecalculateRUPAYASupply(1);
                 }
 
                 // Force recalculation of accumulators.
                 if (GetBoolArg("-reindexaccumulators", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
-                        CBlockIndex *pindex = chainActive[Params().Zerocoin_StartHeight()];
+                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
+                        CBlockIndex *pindex = chainActive.Genesis();
                         while (pindex->nHeight < chainActive.Height()) {
                             if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
                                        pindex->nAccumulatorCheckpoint))
@@ -1479,7 +1479,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                             if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
                                 return InitError(strError);
                         }
-                    }
+                    //}
                 }
 
                 uiInterface.InitMessage(_("Verifying blocks..."));

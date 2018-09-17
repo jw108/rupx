@@ -1443,8 +1443,8 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
 
         // no need to read and scan block, if block was created before
         // our wallet birthday (as adjusted for block time variability)
-        while (pindex && nTimeFirstKey && (pindex->GetBlockTime() < (nTimeFirstKey - 7200)) && pindex->nHeight <= Params().Zerocoin_StartHeight())
-            pindex = chainActive.Next(pindex);
+        //while (pindex && nTimeFirstKey && (pindex->GetBlockTime() < (nTimeFirstKey - 7200)) && pindex->nHeight <= Params().Zerocoin_StartHeight())
+        //    pindex = chainActive.Next(pindex);
 
         ShowProgress(_("Rescanning..."), 0); // show rescan progress in GUI as dialog or on splashscreen, if -rescan on startup
         double dProgressStart = Checkpoints::GuessVerificationProgress(pindex, false);
@@ -1462,7 +1462,7 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
             }
 
             //If this is a zapwallettx, need to readd zrupx
-            if (fCheckZRUPX && pindex->nHeight >= Params().Zerocoin_StartHeight()) {
+            if (fCheckZRUPX) {
                 list<CZerocoinMint> listMints;
                 BlockToZerocoinMintList(block, listMints);
 
@@ -2120,7 +2120,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
 
     //zRUPX
     if (GetBoolArg("-zrupxstake", true) &&
-        chainActive.Height() > Params().Zerocoin_StartHeight() &&
+        //chainActive.Height() > Params().Zerocoin_StartHeight() &&
         !IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
         //Only update zRUPX set once per update interval
         bool fUpdate = false;

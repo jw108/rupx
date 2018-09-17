@@ -110,7 +110,6 @@ public:
     /** Height or Time Based Activations **/
     //int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     int Last_PoW_Block() const { return nLastPoWBlock; }
-    int Zerocoin_StartHeight() const { return Last_PoW_Block() + 1; }
     unsigned int Stake_Min_Age() const { return nStakeMinAge; }
 
 protected:
@@ -161,7 +160,6 @@ protected:
     int nDefaultSecurityLevel;
     int nZerocoinHeaderVersion;
     int64_t nBudget_Fee_Confirmations;
-    int nZerocoinStartHeight;
     int nZerocoinRequiredStakeDepth;
     unsigned int nStakeMinAge;
 };

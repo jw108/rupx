@@ -37,7 +37,7 @@ uint32_t GetChecksum(const CBigNum &bnValue)
 // Find the first occurance of a certain accumulator checksum. Return 0 if not found.
 int GetChecksumHeight(uint32_t nChecksum, CoinDenomination denomination)
 {
-    CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
+    CBlockIndex* pindex = chainActive.Genesis();
     if (!pindex)
         return 0;
 
@@ -85,10 +85,10 @@ bool GetAccumulatorValueFromDB(uint256 nCheckpoint, CoinDenomination denom, CBig
 
 void AddAccumulatorChecksum(const uint32_t nChecksum, const CBigNum &bnValue)
 {
-    if (chainActive.Height() >= Params().Zerocoin_StartHeight()) {
+    //if (chainActive.Height() >= Params().Zerocoin_StartHeight()) {
         zerocoinDB->WriteAccumulatorValue(nChecksum, bnValue);
         mapAccumulatorValues.insert(make_pair(nChecksum, bnValue));
-    }
+    //}
 }
 
 void DatabaseChecksums(AccumulatorMap& mapAccumulators)
@@ -182,8 +182,8 @@ bool EraseCheckpoints(int nStartHeight, int nEndHeight)
 
 bool InitializeAccumulators(const int nHeight, int& nHeightCheckpoint, AccumulatorMap& mapAccumulators)
 {
-    if (nHeight < Params().Zerocoin_StartHeight())
-        return error("%s: height is below zerocoin activated", __func__);
+    //if (nHeight < Params().Zerocoin_StartHeight())
+    //    return error("%s: height is below zerocoin activated", __func__);
 
     //On a specific block, a recalculation of the accumulators will be forced
     // if (nHeight == Params().Zerocoin_Block_RecalculateAccumulators()) {
@@ -199,21 +199,21 @@ bool InitializeAccumulators(const int nHeight, int& nHeightCheckpoint, Accumulat
     //     return true;
     // }
 
-    if (nHeight >= Params().Zerocoin_StartHeight()) {
+    //if (nHeight >= Params().Zerocoin_StartHeight()) {
         mapAccumulators.Reset();
 
         // 20 after v2 start is when the new checkpoints will be in the block, so don't need to load hard checkpoints
-        if (nHeight <= Params().Zerocoin_StartHeight() + 20) {
+        if (nHeight <= 20) {//Params().Zerocoin_StartHeight() + 20) {
             //Load hard coded checkpointed value
             //AccumulatorCheckpoints::Checkpoint checkpoint = AccumulatorCheckpoints::GetClosestCheckpoint(nHeight,
             //                                                                                            nHeightCheckpoint);
             //if (nHeightCheckpoint < 0)
             //    return error("%s: failed to load hard-checkpoint for block %s", __func__, nHeight);
-            nHeightCheckpoint = Params().Zerocoin_StartHeight();
+            nHeightCheckpoint = 0;//Params().Zerocoin_StartHeight();
             mapAccumulators.Load(uint256(0));
             return true;
         }
-    }
+    //}
 
     //Use the previous block's checkpoint to initialize the accumulator's state
     uint256 nCheckpointPrev = chainActive[nHeight - 1]->nAccumulatorCheckpoint;
@@ -229,10 +229,10 @@ bool InitializeAccumulators(const int nHeight, int& nHeightCheckpoint, Accumulat
 //Get checkpoint value for a specific block height
 bool CalculateAccumulatorCheckpoint(int nHeight, uint256& nCheckpoint, AccumulatorMap& mapAccumulators)
 {
-    if (nHeight < Params().Zerocoin_StartHeight()) {
-        nCheckpoint = 0;
-        return true;
-    }
+    // if (nHeight < Params().Zerocoin_StartHeight()) {
+    //     nCheckpoint = 0;
+    //     return true;
+    // }
 
     //the checkpoint is updated every ten blocks, return current active checkpoint if not update block
     if (nHeight % 10 != 0) {
@@ -251,7 +251,7 @@ bool CalculateAccumulatorCheckpoint(int nHeight, uint256& nCheckpoint, Accumulat
 
     //Accumulate all coins over the last ten blocks that havent been accumulated (height - 20 through height - 11)
     int nTotalMintsFound = 0;
-    CBlockIndex *pindex = chainActive[nHeightCheckpoint - 20];
+    CBlockIndex *pindex = nHeightCheckpoint == 0 ? chainActive.Genesis() : chainActive[nHeightCheckpoint - 20];
 
     while (pindex->nHeight < nHeight - 10) {
         // checking whether we should stop this process due to a shutdown request
@@ -259,10 +259,10 @@ bool CalculateAccumulatorCheckpoint(int nHeight, uint256& nCheckpoint, Accumulat
             return false;
 
         //make sure this block is eligible for accumulation
-        if (pindex->nHeight < Params().Zerocoin_StartHeight()) {
-            pindex = chainActive[pindex->nHeight + 1];
-            continue;
-        }
+        // if (pindex->nHeight < Params().Zerocoin_StartHeight()) {
+        //     pindex = chainActive[pindex->nHeight + 1];
+        //     continue;
+        // }
 
         //grab mints from this block
         CBlock block;
@@ -298,7 +298,7 @@ bool ValidateAccumulatorCheckpoint(const CBlock& block, CBlockIndex* pindex, Acc
 {
     //V1 accumulators are completely phased out by the time this code hits the public and begins generating new checkpoints
     //It is VERY IMPORTANT that when this is being run and height < v2_start, then zRUPX need to be disabled at the same time!!
-    if (pindex->nHeight < Params().Zerocoin_StartHeight() || fVerifyingBlocks)
+    if (/*pindex->nHeight < Params().Zerocoin_StartHeight() ||*/ fVerifyingBlocks)
         return true;
 
     if (pindex->nHeight % 10 == 0) {
@@ -339,7 +339,7 @@ void RandomizeSecurityLevel(int& nSecurityLevel)
 //Compute how many coins were added to an accumulator up to the end height
 int ComputeAccumulatedCoins(int nHeightEnd, libzerocoin::CoinDenomination denom)
 {
-    CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
+    CBlockIndex* pindex = chainActive.Genesis();
     int n = 0;
     while (pindex->nHeight < nHeightEnd) {
         n += count(pindex->vMintDenominationsInBlock.begin(), pindex->vMintDenominationsInBlock.end(), denom);
@@ -388,7 +388,7 @@ bool GetAccumulatorValue(int& nHeight, const libzerocoin::CoinDenomination denom
 
     //Every situation except for about 20 blocks should use this method
     uint256 nCheckpointBeforeMint = chainActive[nHeight]->nAccumulatorCheckpoint;
-    if (nHeight > Params().Zerocoin_StartHeight() + 20)
+    if (nHeight > 20)
         return GetAccumulatorValueFromDB(nCheckpointBeforeMint, denom, bnAccValue);
 
     // int nHeightCheckpoint = 0;
@@ -467,7 +467,7 @@ bool GenerateAccumulatorWitness(const PublicCoin &coin, Accumulator& accumulator
     RandomizeSecurityLevel(nSecurityLevel); //make security level not always the same and predictable
     libzerocoin::Accumulator witnessAccumulator = accumulator;
 
-    bool fDoubleCounted = false;
+    //bool fDoubleCounted = false;
     while (pindex) {
         if (pindex->nHeight != nAccStartHeight && pindex->pprev->nAccumulatorCheckpoint != pindex->nAccumulatorCheckpoint)
             ++nCheckpointsAdded;
@@ -491,11 +491,11 @@ bool GenerateAccumulatorWitness(const PublicCoin &coin, Accumulator& accumulator
         nMintsAdded += AddBlockMintsToAccumulator(coin, nHeightMintAdded, pindex, &witnessAccumulator, true);
 
         // 10 blocks were accumulated twice when zRUPX v2 was activated
-        if (pindex->nHeight == 1050010 && !fDoubleCounted) {
-            pindex = chainActive[1050000];
-            fDoubleCounted = true;
-            continue;
-        }
+        // if (pindex->nHeight == 1050010 && !fDoubleCounted) {
+        //     pindex = chainActive[1050000];
+        //     fDoubleCounted = true;
+        //     continue;
+        //}
 
         pindex = chainActive.Next(pindex);
     }
@@ -529,7 +529,7 @@ map<CoinDenomination, int> GetMintMaturityHeight()
     int nMinimumMaturityHeight = nConfirmedHeight - (nConfirmedHeight % 10);
     CBlockIndex* pindex = chainActive[nConfirmedHeight];
 
-    while (pindex && pindex->nHeight > Params().Zerocoin_StartHeight()) {
+    while (pindex) {
         bool isFinished = true;
         for (auto denom : libzerocoin::zerocoinDenomList) {
             //If the denom has not already had a mint added to it, then see if it has a mint added on this block
