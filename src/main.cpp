@@ -1812,13 +1812,7 @@ int64_t GetBlockValue(int nHeight)
     
     if (nHeight == 0) {
         nSubsidy = 39000000 * COIN;
-    } else if (nHeight < 5000 && nHeight > 0) {
-        nSubsidy = 0.1 * COIN;
-    } else if (nHeight < 10000 && nHeight >= 5000) {
-        nSubsidy = 0.5 * COIN;
-    } else if (nHeight < 15000 && nHeight >= 10000) {
-        nSubsidy = 1 * COIN;
-    } else if (nHeight < 20000 && nHeight >= 15000) {
+    } else if (nHeight < 20000 && nHeight >= 0) {
         nSubsidy = 5 * COIN;
     } else if (nHeight < 100000 && nHeight >= 20000) {
         nSubsidy = 56 * COIN;
@@ -1848,16 +1842,9 @@ int64_t GetBlockValue(int nHeight)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZRupxStake)
 {
-    if (nMasternodeCount == 0) return 0;
-    int64_t ret = 0;
-    
-    if (nHeight < 20000) {
-        ret = blockValue * 0.10;
-    } else {
-        ret = blockValue * 0.75;
-    }
-    
-    return ret;
+    return isZRupxStake 
+        ? blockValue * 0.65 
+        : blockValue * 0.75;
 }
 
 bool IsInitialBlockDownload()
@@ -4024,7 +4011,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
 
     // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
     // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
-    if (block.nVersion >= 2 &&
+    if (block.nVersion >= 2 && nHeight >= 2000 &&
         CBlockIndex::IsSuperMajority(2, pindexPrev, Params().EnforceBlockUpgradeMajority())) {
         CScript expect = CScript() << nHeight;
         if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
@@ -4355,7 +4342,11 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
 bool TestBlockValidity(CValidationState& state, const CBlock& block, CBlockIndex* const pindexPrev, bool fCheckPOW, bool fCheckMerkleRoot)
 {
     AssertLockHeld(cs_main);
-    assert(pindexPrev == chainActive.Tip());
+    //assert(pindexPrev == chainActive.Tip());
+    if(pindexPrev != chainActive.Tip()) {
+        LogPrint("Error: Block %s failed %s because the active tip is not what was expected.", block.GetHash().GetHex().c_str(), __func__);
+        return false;
+    }
 
     CCoinsViewCache viewNew(pcoinsTip);
     CBlockIndex indexDummy(block);

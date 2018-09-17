@@ -53,7 +53,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (233, uint256("0x2604e2684cd5d9cef43a8052e9ba6e55dfbe1f5c4058df1602b30a5c3e4a6308")); //last block with skipPoW.
+    (0, uint256("0x001")); 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1536849316, // * UNIX timestamp of last checkpoint block
@@ -111,7 +111,7 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 20; // RUPAYA starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
-        nEnforceBlockUpgradeMajority = 750;
+        nEnforceBlockUpgradeMajority = 1;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         //nMinerThreads = 0;
@@ -215,7 +215,7 @@ public:
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zrupx to be stakable
-        nStakeMinAge = 60; //The number of seconds that a utxo must be old before it can qualify for staking
+        nStakeMinAge = 60 * 60; //The number of seconds that a utxo must be old before it can qualify for staking
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
