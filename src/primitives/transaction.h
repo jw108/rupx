@@ -273,7 +273,6 @@ public:
     bool IsZerocoinSpend() const
     {
         return (vin.size() > 0 &&
-                !vin[0].prevout.IsNull() &&
                 vin[0].prevout.hash == 0 &&
                 vin[0].scriptSig[0] == OP_ZEROCOINSPEND);
     }

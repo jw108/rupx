@@ -237,13 +237,13 @@ public:
         vAlertPubKey = ParseHex("0441368f7cdaaf61526a27262b255af8c8453f967e543b32faee550439f13138fccdf6b8196ddb290081c2796dc053164a849d64ef9331e8ace3f7ebf9d438d846");
         nP2pPort = 10500;
         nRpcPort = 11000;
-        nEnforceBlockUpgradeMajority = 51;
+        nEnforceBlockUpgradeMajority = 1;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
-        nLastPoWBlock = 200;
+        nLastPoWBlock = 100;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         //nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
@@ -261,14 +261,14 @@ public:
         //nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Saturday, March 31, 2018 12:00:00 AM GMT
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1536786000;
-        genesis.nNonce = 2908085;
+        //genesis.nTime = 1536786000;
+        //genesis.nNonce = 2908085;
 
-        hashGenesisBlock = genesis.GetHash();
+        //hashGenesisBlock = genesis.GetHash();
        // assert(hashGenesisBlock == uint256("0x00000c70562b7ec00e7600a301fcb1d31cb4991d9ea0fbf7f6214491c78d02ae"));
 
-        vFixedSeeds.clear();
-        vSeeds.clear();
+         vFixedSeeds.clear();
+         vSeeds.clear();
          vSeeds.push_back(CDNSSeedData("testnode-01.nethash.io", "testnode-01.nethash.io"));
          vSeeds.push_back(CDNSSeedData("testnode-02.nethash.io", "testnode-02.nethash.io"));
          vSeeds.push_back(CDNSSeedData("testnode-03.nethash.io", "testnode-03.nethash.io"));
@@ -294,7 +294,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "04acff02fc6183191a8f109cd4d7787e4e5c68e760284e7ab22d95337ac2c76669abf2b9350218a43ae56b5b9fa5b6817881a3f901273091232b6ab85bda068e27";
+        //strSporkKey = "04acff02fc6183191a8f109cd4d7787e4e5c68e760284e7ab22d95337ac2c76669abf2b9350218a43ae56b5b9fa5b6817881a3f901273091232b6ab85bda068e27";
         //strSporkKeyOld = "04348C2F50F90267E64FACC65BFDC9D0EB147D090872FB97ABAE92E9A36E6CA60983E28E741F8E7277B11A7479B626AC115BA31463AC48178A5075C5A9319D4A38";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
         //nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT

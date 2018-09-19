@@ -1129,11 +1129,13 @@ bool CheckTransaction(const CTransaction& tx, CValidationState& state)
             vInOutPoints.insert(txin.prevout);
     }
 
-    if (tx.IsCoinBase()) {
+    //TODO: Remove this block after activation of SPORK_14
+    if (tx.IsCoinBase() && !IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
         if ((tx.vin[0].scriptSig.size() < 2 && IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) || tx.vin[0].scriptSig.size() > 150)
             return state.DoS(100, error("CheckTransaction() : coinbase script size=%d", tx.vin[0].scriptSig.size()),
                 REJECT_INVALID, "bad-cb-length");
-    } else if (tx.IsZerocoinSpend()) {
+    } else /* End Removal */ if(tx.IsZerocoinSpend())
+    {
         if (tx.vin.size() < 1 || static_cast<int>(tx.vin.size()) > Params().Zerocoin_MaxSpendsPerTransaction())
             return state.DoS(10, error("CheckTransaction() : Zerocoin Spend has more than allowed txin's"), REJECT_INVALID, "bad-zerocoinspend");
     } else {
@@ -6143,7 +6145,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 //       it was the one which was commented out
 int ActiveProtocol()
 {
-    // SPORK_14 is used for 70913 (v3.1.0+)
+    // SPORK_14 is used for 71014 (v5.0.16+)
     if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
         return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
 

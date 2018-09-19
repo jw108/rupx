@@ -368,7 +368,7 @@ void PrivacyDialog::sendzRUPX()
 
     if(!fWholeNumber && fMintChange){
         QString strFeeWarning = "You've entered an amount with fractional digits and want the change to be converted to Zerocoin.<br /><br /><b>";
-        strFeeWarning += QString::number(dzFee, 'f', 8) + " RUPAYA </b>will be added to the standard transaction fees!<br />";
+        strFeeWarning += QString::number(dzFee, 'f', 8) + " RUPX </b>will be added to the standard transaction fees!<br />";
         QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm additional Fees"),
             strFeeWarning,
             QMessageBox::Yes | QMessageBox::Cancel,
@@ -462,12 +462,12 @@ void PrivacyDialog::sendzRUPX()
 
     // Display errors during spend
     if (!fSuccess) {
-        if (receipt.GetStatus() == ZRUPX_SPEND_V1_SEC_LEVEL) {
-            QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Version 1 zRUPX require a security level of 100 to successfully spend."), QMessageBox::Ok, QMessageBox::Ok);
-            ui->TEMintStatus->setPlainText(tr("Failed to spend zRUPX"));
-            ui->TEMintStatus->repaint();
-            return;
-        }
+        // if (receipt.GetStatus() == ZRUPX_SPEND_V1_SEC_LEVEL) {
+        //     QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Version 1 zRUPX require a security level of 100 to successfully spend."), QMessageBox::Ok, QMessageBox::Ok);
+        //     ui->TEMintStatus->setPlainText(tr("Failed to spend zRUPX"));
+        //     ui->TEMintStatus->repaint();
+        //     return;
+        // }
 
         int nNeededSpends = receipt.GetNeededSpends(); // Number of spends we would need for this transaction
         const int nMaxSpends = Params().Zerocoin_MaxSpendsPerTransaction(); // Maximum possible spends for one zRUPX transaction
