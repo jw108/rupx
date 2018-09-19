@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2017 The PIVX Developers 
+// Copyright (c) 2015-2017 The BASE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,17 +24,26 @@ public:
     uint32_t n;
 
     COutPoint() { SetNull(); }
-    COutPoint(uint256 hashIn, uint32_t nIn) { hash = hashIn; n = nIn; }
+    COutPoint(uint256 hashIn, uint32_t nIn)
+    {
+        hash = hashIn;
+        n = nIn;
+    }
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
+    {
         READWRITE(FLATDATA(*this));
     }
 
-    void SetNull() { hash.SetNull(); n = (uint32_t) -1; }
-    bool IsNull() const { return (hash.IsNull() && n == (uint32_t) -1); }
+    void SetNull()
+    {
+        hash.SetNull();
+        n = (uint32_t)-1;
+    }
+    bool IsNull() const { return (hash.IsNull() && n == (uint32_t)-1); }
     bool IsMasternodeReward(const CTransaction* tx) const;
 
     friend bool operator<(const COutPoint& a, const COutPoint& b)
@@ -56,7 +65,6 @@ public:
     std::string ToStringShort() const;
 
     uint256 GetHash();
-
 };
 
 /** An input of a transaction.  It contains the location of the previous
@@ -76,13 +84,14 @@ public:
         nSequence = std::numeric_limits<unsigned int>::max();
     }
 
-    explicit CTxIn(COutPoint prevoutIn, CScript scriptSigIn=CScript(), uint32_t nSequenceIn=std::numeric_limits<unsigned int>::max());
-    CTxIn(uint256 hashPrevTx, uint32_t nOut, CScript scriptSigIn=CScript(), uint32_t nSequenceIn=std::numeric_limits<uint32_t>::max());
+    explicit CTxIn(COutPoint prevoutIn, CScript scriptSigIn = CScript(), uint32_t nSequenceIn = std::numeric_limits<unsigned int>::max());
+    CTxIn(uint256 hashPrevTx, uint32_t nOut, CScript scriptSigIn = CScript(), uint32_t nSequenceIn = std::numeric_limits<uint32_t>::max());
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
+    {
         READWRITE(prevout);
         READWRITE(scriptSig);
         READWRITE(nSequence);
@@ -95,7 +104,7 @@ public:
 
     friend bool operator==(const CTxIn& a, const CTxIn& b)
     {
-        return (a.prevout   == b.prevout &&
+        return (a.prevout == b.prevout &&
                 a.scriptSig == b.scriptSig &&
                 a.nSequence == b.nSequence);
     }
@@ -128,7 +137,8 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
+    {
         READWRITE(nValue);
         READWRITE(scriptPubKey);
     }
@@ -160,15 +170,15 @@ public:
 
     bool IsDust(CFeeRate minRelayTxFee) const
     {
-        // "Dust" is defined in terms of CTransaction::minRelayTxFee, which has units urupx-per-kilobyte.
+        // "Dust" is defined in terms of CTransaction::minRelayTxFee, which has units upiv-per-kilobyte.
         // If you'd pay more than 1/3 in fees to spend something, then we consider it dust.
         // A typical txout is 34 bytes big, and will need a CTxIn of at least 148 bytes to spend
-        // i.e. total is 148 + 32 = 182 bytes. Default -minrelaytxfee is 10000 urupx per kB
-        // and that means that fee per txout is 182 * 10000 / 1000 = 1820 urupx.
-        // So dust is a txout less than 1820 *3 = 5460 urupx
-        // with default -minrelaytxfee = minRelayTxFee = 10000 urupx per kB.
-        size_t nSize = GetSerializeSize(SER_DISK,0)+148u;
-        return (nValue < 3*minRelayTxFee.GetFee(nSize));
+        // i.e. total is 148 + 32 = 182 bytes. Default -minrelaytxfee is 10000 upiv per kB
+        // and that means that fee per txout is 182 * 10000 / 1000 = 1820 upiv.
+        // So dust is a txout less than 1820 *3 = 5460 upiv
+        // with default -minrelaytxfee = minRelayTxFee = 10000 upiv per kB.
+        size_t nSize = GetSerializeSize(SER_DISK, 0) + 148u;
+        return (nValue < 3 * minRelayTxFee.GetFee(nSize));
     }
 
     bool IsZerocoinMint() const
@@ -178,9 +188,9 @@ public:
 
     friend bool operator==(const CTxOut& a, const CTxOut& b)
     {
-        return (a.nValue       == b.nValue &&
+        return (a.nValue == b.nValue &&
                 a.scriptPubKey == b.scriptPubKey &&
-                a.nRounds      == b.nRounds);
+                a.nRounds == b.nRounds);
     }
 
     friend bool operator!=(const CTxOut& a, const CTxOut& b)
@@ -204,7 +214,7 @@ private:
     void UpdateHash() const;
 
 public:
-    static const int32_t CURRENT_VERSION=1;
+    static const int32_t CURRENT_VERSION = 1;
 
     // The local variables are made const to prevent unintended modification
     // without updating the cached hash value. However, CTransaction is not
@@ -221,14 +231,15 @@ public:
     CTransaction();
 
     /** Convert a CMutableTransaction into a CTransaction. */
-    CTransaction(const CMutableTransaction &tx);
+    CTransaction(const CMutableTransaction& tx);
 
     CTransaction& operator=(const CTransaction& tx);
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
+    {
         READWRITE(*const_cast<int32_t*>(&this->nVersion));
         nVersion = this->nVersion;
         READWRITE(*const_cast<std::vector<CTxIn>*>(&vin));
@@ -238,11 +249,13 @@ public:
             UpdateHash();
     }
 
-    bool IsNull() const {
+    bool IsNull() const
+    {
         return vin.empty() && vout.empty();
     }
 
-    const uint256& GetHash() const {
+    const uint256& GetHash() const
+    {
         return hash;
     }
 
@@ -252,19 +265,22 @@ public:
     // inputs must be known to compute value in.
 
     // Compute priority, given priority of inputs and (optionally) tx size
-    double ComputePriority(double dPriorityInputs, unsigned int nTxSize=0) const;
+    double ComputePriority(double dPriorityInputs, unsigned int nTxSize = 0) const;
 
     // Compute modified tx size for priority calculation (optionally given tx size)
-    unsigned int CalculateModifiedSize(unsigned int nTxSize=0) const;
+    unsigned int CalculateModifiedSize(unsigned int nTxSize = 0) const;
 
     bool IsZerocoinSpend() const
     {
-        return (vin.size() > 0 && vin[0].prevout.hash == 0 && vin[0].scriptSig[0] == OP_ZEROCOINSPEND);
+        return (vin.size() > 0 &&
+                !vin[0].prevout.IsNull() &&
+                vin[0].prevout.hash == 0 &&
+                vin[0].scriptSig[0] == OP_ZEROCOINSPEND);
     }
 
     bool IsZerocoinMint() const
     {
-        for(const CTxOut& txout : vout) {
+        for (const CTxOut& txout : vout) {
             if (txout.scriptPubKey.IsZerocoinMint())
                 return true;
         }
@@ -302,12 +318,11 @@ public:
 
     std::string ToString() const;
 
-    bool GetCoinAge(uint64_t& nCoinAge) const;  // ppcoin: get transaction coin age
+    bool GetCoinAge(uint64_t& nCoinAge) const; // ppcoin: get transaction coin age
 };
 
 /** A mutable version of CTransaction. */
-struct CMutableTransaction
-{
+struct CMutableTransaction {
     int32_t nVersion;
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
@@ -319,7 +334,8 @@ struct CMutableTransaction
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
+    {
         READWRITE(this->nVersion);
         nVersion = this->nVersion;
         READWRITE(vin);
@@ -343,7 +359,6 @@ struct CMutableTransaction
     {
         return !(a == b);
     }
-
 };
 
 #endif // BITCOIN_PRIMITIVES_TRANSACTION_H
