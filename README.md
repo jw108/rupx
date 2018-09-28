@@ -1,56 +1,65 @@
-RUPAYA Core integration/staging repository
-=====================================
+# Rupaya
 
-[![Build Status](https://travis-ci.org/RUPAYA-Project/RUPAYA.svg?branch=master)](https://travis-ci.org/RUPAYA-Project/RUPAYA) [![GitHub version](https://badge.fury.io/gh/RUPAYA-Project%2FRUPAYA.svg)](https://badge.fury.io/gh/RUPAYA-Project%2FRUPAYA)
+[![Build Status](https://travis-ci.org/rupaya-project/rupx.svg?branch=master)](https://travis-ci.org/rupaya-project/rupx)  [![GitHub version](https://badge.fury.io/gh/rupaya-project%2Frupx.svg)](https://badge.fury.io/gh/rupaya-project%2Frupx) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/rupaya-project/rupx/issues) [![HitCount](http://hits.dwyl.io/mo-bay/rupaya-project/rupx.svg)](http://hits.dwyl.io/mo-bay/rupaya-project/rupx)
 
-RUPAYA is an open source crypto-currency focused on fast private transactions with low transaction fees & environmental footprint.  It utilizes a custom Proof of Stake protocol for securing its network and uses an innovative variable seesaw reward mechanism that dynamically balances 90% of its block reward size between masternodes and staking nodes and 10% dedicated for budget proposals. The goal of RUPAYA is to achieve a decentralized sustainable crypto currency with near instant full-time private transactions, fair governance and community intelligence.
-- Anonymized transactions using the [_Zerocoin Protocol_](http://www.rupx.io/zrupx).
-- Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftX_.
-- Decentralized blockchain voting utilizing Masternode technology to form a DAO. The blockchain will distribute monthly treasury funds based on successful proposals submitted by the community and voted on by the DAO.
 
-More information at [rupx.io](http://www.rupx.io) Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/index.php?topic=1262920)
 
-### Coin Specs
-<table>
-<tr><td>Algo</td><td>Quark</td></tr>
-<tr><td>Block Time</td><td>60 Seconds</td></tr>
-<tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply (PoW Phase)</td><td>43,199,500 RUPAYA</td></tr>
-<tr><td>Max Coin Supply (PoS Phase)</td><td>Infinite</td></tr>
-<tr><td>Premine</td><td>60,000 RUPAYA*</td></tr>
-</table>
+Rupaya is the digital form of rupees, which is a currency used throughout South Asia. Rupaya is intended to provide a digital currency to a growing number of residents in emerging markets that are unable to access bank accounts and credit cards.
 
-*60,000 RUPAYA Premine was burned in block [279917](http://www.presstab.pw/phpexplorer/RUPAYA/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0)
 
-### Reward Distribution
+# Specifications :
 
-<table>
-<th colspan=4>Genesis Block</th>
-<tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th></tr>
-<tr><td>1</td><td>60,000 RUPAYA</td><td>Initial Pre-mine, burnt in block <a href="http://www.presstab.pw/phpexplorer/RUPAYA/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0">279917</a></td></tr>
-</table>
+  - Proof of Stake with MN & Governance
+  - Zerocoin v2 with staking 
+  - Instant Transactions via SwiftTx
+  - DAO Governance
+  - 60sec block time
+  - 20k for Masternodes
 
-### PoW Rewards Breakdown
 
-<table>
-<th>Block Height</th><th>Masternodes</th><th>Miner</th><th>Budget</th>
-<tr><td>2-43200</td><td>20% (50 RUPAYA)</td><td>80% (200 RUPAYA)</td><td>N/A</td></tr>
-<tr><td>43201-151200</td><td>20% (50 RUPAYA)</td><td>70% (200 RUPAYA)</td><td>10% (25 RUPAYA)</td></tr>
-<tr><td>151201-259200</td><td>45% (22.5 RUPAYA)</td><td>45% (22.5 RUPAYA)</td><td>10% (5 RUPAYA)</td></tr>
-</table>
+Mainnet Ports :
+  - P2P 9050
+  - RPC 7050
 
-### PoS Rewards Breakdown
+Testnet Ports :
+  - P2P 10500
+  - RPC 11000
 
-<table>
-<th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternodes & Stakers</th><th>Budget</th>
-<tr><td>Phase 1</td><td>259201-302399</td><td>50 RUPAYA</td><td>90% (45 RUPAYA)</td><td>10% (5 RUPAYA)</td></tr>
-<tr><td>Phase 2</td><td>302400-345599</td><td>45 RUPAYA</td><td>90% (40.5 RUPAYA)</td><td>10% (4.5 RUPAYA)</td></tr>
-<tr><td>Phase 3</td><td>345600-388799</td><td>40 RUPAYA</td><td>90% (36 RUPAYA)</td><td>10% (4 RUPAYA)</td></tr>
-<tr><td>Phase 4</td><td>388800-431999</td><td>35 RUPAYA</td><td>90% (31.5 RUPAYA)</td><td>10% (3.5 RUPAYA)</td></tr>
-<tr><td>Phase 5</td><td>432000-475199</td><td>30 RUPAYA</td><td>90% (27 RUPAYA)</td><td>10% (3 RUPAYA)</td></tr>
-<tr><td>Phase 6</td><td>475200-518399</td><td>25 RUPAYA</td><td>90% (22.5 RUPAYA)</td><td>10% (2.5 RUPAYA)</td></tr>
-<tr><td>Phase 7</td><td>518400-561599</td><td>20 RUPAYA</td><td>90% (18 RUPAYA)</td><td>10% (2 RUPAYA)</td></tr>
-<tr><td>Phase 8</td><td>561600-604799</td><td>15 RUPAYA</td><td>90% (13.5 RUPAYA)</td><td>10% (1.5 RUPAYA)</td></tr>
-<tr><td>Phase 9</td><td>604800-647999</td><td>10 RUPAYA</td><td>90% (9 RUPAYA)</td><td>10% (1 RUPAYA)</td></tr>
-<tr><td>Phase X</td><td>648000-Infinite</td><td>5 RUPAYA</td><td>90% (4.5 RUPAYA)</td><td>10% (0.5 RUPAYA)</td></tr>
-</table>
+A total of 39M Rupaya's were premined to swap the community's holding at [Block 1](https://find.rupx.io/block/1)
+
+
+### Block Rewards
+
+Find out more about our block reward & governance structure and percentages on our [website](https://www.rupx.io) .
+
+License
+----
+
+MIT
+
+
+**Free Software, Hell Yeah!**
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+
+   [dill]: <https://github.com/joemccann/dillinger>
+   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
+   [john gruber]: <http://daringfireball.net>
+   [df1]: <http://daringfireball.net/projects/markdown/>
+   [markdown-it]: <https://github.com/markdown-it/markdown-it>
+   [Ace Editor]: <http://ace.ajax.org>
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [jQuery]: <http://jquery.com>
+   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
+   [express]: <http://expressjs.com>
+   [AngularJS]: <http://angularjs.org>
+   [Gulp]: <http://gulpjs.com>
+
+   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
+   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
+   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
+   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
+   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
+   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
