@@ -159,16 +159,20 @@ public:
         assert(hashGenesisBlock == uint256("0x000004a52cbc6eeab60f685b9eced6322f08054fde6e66f84be90f1aaced149a"));
         assert(genesis.hashMerkleRoot == uint256("0x4dca438430ad9ca73a7b6f5403c4e1ba597501828f3ea5700f23b994facc78b7"));
 
-        vSeeds.push_back(CDNSSeedData("node-01.nethash.io", "node-01.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-02.nethash.io", "node-02.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-03.nethash.io", "node-03.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-04.nethash.io", "node-04.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-05.nethash.io", "node-05.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-06.nethash.io", "node-06.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-07.nethash.io", "node-07.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-08.nethash.io", "node-08.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-09.nethash.io", "node-09.nethash.io"));
-        vSeeds.push_back(CDNSSeedData("node-10.nethash.io", "node-10.nethash.io"));
+
+        vSeeds.push_back(CDNSSeedData("seeder-1.rupx.io", "seeder-1.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("seeder-2.rupx.io", "seeder-2.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("seeder-2.rupx.io", "seeder-3.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-01.rupx.io", "node-01.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-02.rupx.io", "node-02.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-03.rupx.io", "node-03.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-04.rupx.io", "node-04.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-05.rupx.io", "node-05.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-06.rupx.io", "node-06.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-07.rupx.io", "node-07.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-08.rupx.io", "node-08.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-09.rupx.io", "node-09.rupx.io"));
+        vSeeds.push_back(CDNSSeedData("node-10.rupx.io", "node-10.rupx.io"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 60); // Rupaya's wallet address starts with a R
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 15); // 7
@@ -269,10 +273,10 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-         vSeeds.push_back(CDNSSeedData("testnode-01.nethash.io", "testnode-01.nethash.io"));
-         vSeeds.push_back(CDNSSeedData("testnode-02.nethash.io", "testnode-02.nethash.io"));
-         vSeeds.push_back(CDNSSeedData("testnode-03.nethash.io", "testnode-03.nethash.io"));
-         vSeeds.push_back(CDNSSeedData("testnode-04.nethash.io", "testnode-04.nethash.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-01.rupx.io", "testnode-01.rupx.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-02.rupx.io", "testnode-02.rupx.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-03.rupx.io", "testnode-03.rupx.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-04.rupx.io", "testnode-04.rupx.io"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 17); // Testnet rupaya addresses start with '7'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 18);  // Testnet rupaya script addresses start with '8'
