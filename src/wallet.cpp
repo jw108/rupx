@@ -3979,6 +3979,8 @@ bool CWallet::GetDestData(const CTxDestination& dest, const std::string& key, st
 // CWallet::AutoZeromint() gets called with each new incoming block
 void CWallet::AutoZeromint()
 {
+    if (chainActive.Height() <= Params().Last_PoW_Block()) return;
+
     // Don't bother Autominting if Zerocoin Protocol isn't active
     if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) return;
 
@@ -4578,24 +4580,22 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
 {
     // Default error status if not changed below
     receipt.SetStatus(_("Transaction Mint Started"), ZRUPX_TXMINT_GENERAL);
-    libzerocoin::ZerocoinParams* paramsAccumulator = Params().Zerocoin_Params();
-
-    //bool isV1Coin = libzerocoin::ExtractVersionFromSerial(zerocoinSelected.GetSerialNumber()) < libzerocoin::PrivateCoin::PUBKEY_VERSION;
-    libzerocoin::ZerocoinParams* paramsCoin = Params().Zerocoin_Params();
-    //LogPrintf("%s: *** using v1 coin params=%b, using v1 acc params=%b\n", __func__, isV1Coin, chainActive.Height() < Params().Zerocoin_Block_V2_Start());
+    libzerocoin::ZerocoinParams* params = Params().Zerocoin_Params();
 
     // 2. Get pubcoin from the private coin
     libzerocoin::CoinDenomination denomination = zerocoinSelected.GetDenomination();
-    libzerocoin::PublicCoin pubCoinSelected(paramsCoin, zerocoinSelected.GetValue(), denomination);
-    //LogPrintf("%s : selected mint %s\n pubcoinhash=%s\n", __func__, zerocoinSelected.ToString(), GetPubCoinHash(zerocoinSelected.GetValue()).GetHex());
+    libzerocoin::PublicCoin pubCoinSelected(params, zerocoinSelected.GetValue(), denomination);
+    if(fDebug)
+        LogPrintf("%s : selected mint %s\n pubcoinhash=%s\n", __func__, zerocoinSelected.ToString(), GetPubCoinHash(zerocoinSelected.GetValue()).GetHex());
+    
     if (!pubCoinSelected.validate()) {
         receipt.SetStatus(_("The selected mint coin is an invalid coin"), ZRUPX_INVALID_COIN);
         return false;
     }
 
     // 3. Compute Accumulator and Witness
-    libzerocoin::Accumulator accumulator(paramsAccumulator, pubCoinSelected.getDenomination());
-    libzerocoin::AccumulatorWitness witness(paramsAccumulator, accumulator, pubCoinSelected);
+    libzerocoin::Accumulator accumulator(params, pubCoinSelected.getDenomination());
+    libzerocoin::AccumulatorWitness witness(params, accumulator, pubCoinSelected);
     string strFailReason = "";
     int nMintsAdded = 0;
     if (!GenerateAccumulatorWitness(pubCoinSelected, accumulator, witness, nSecurityLevel, nMintsAdded, strFailReason, pindexCheckpoint)) {
@@ -4604,7 +4604,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
     }
 
     // Construct the CoinSpend object. This acts like a signature on the transaction.
-    libzerocoin::PrivateCoin privateCoin(paramsCoin, denomination, false);
+    libzerocoin::PrivateCoin privateCoin(params, denomination, false);
     privateCoin.setPublicCoin(pubCoinSelected);
     privateCoin.setRandomness(zerocoinSelected.GetRandomness());
     privateCoin.setSerialNumber(zerocoinSelected.GetSerialNumber());
@@ -4613,14 +4613,12 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
     uint8_t nVersion = zerocoinSelected.GetVersion();
     privateCoin.setVersion(zerocoinSelected.GetVersion());
     LogPrintf("%s: privatecoin version=%d\n", __func__, privateCoin.getVersion());
-    if (nVersion >= libzerocoin::PrivateCoin::PUBKEY_VERSION) {
-        CKey key;
-        if (!zerocoinSelected.GetKeyPair(key))
-            return error("%s: failed to set zRUPX privkey mint version=%d", __func__, nVersion);
+    
+    CKey key;
+    if (!zerocoinSelected.GetKeyPair(key))
+        return error("%s: failed to set zRUPX privkey mint version=%d", __func__, nVersion);
 
-        privateCoin.setPrivKey(key.GetPrivKey());
-    }
-
+    privateCoin.setPrivKey(key.GetPrivKey());
 
     uint32_t nChecksum = GetChecksum(accumulator.getValue());
     CBigNum bnValue;
@@ -4628,7 +4626,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
         return error("%s: could not find checksum used for spend\n", __func__);
 
     try {
-        libzerocoin::CoinSpend spend(paramsCoin, paramsAccumulator, privateCoin, accumulator, nChecksum, witness, hashTxOut,
+        libzerocoin::CoinSpend spend(params, privateCoin, accumulator, nChecksum, witness, hashTxOut,
                                      spendType);
         LogPrintf("%s\n", spend.ToString());
 
@@ -4637,7 +4635,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
             //return false;
             LogPrintf("** spend.verify failed, trying with different params\n");
 
-            libzerocoin::CoinSpend spend2(Params().Zerocoin_Params(), paramsAccumulator, privateCoin, accumulator,
+            libzerocoin::CoinSpend spend2(params, privateCoin, accumulator,
                                           nChecksum, witness, hashTxOut, libzerocoin::SpendType::SPEND);
             LogPrintf("*** spend2 valid=%d\n", spend2.Verify(accumulator));
             return false;
@@ -4666,7 +4664,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
             return false;
         }
 
-        libzerocoin::CoinSpend newSpendChecking(paramsCoin, paramsAccumulator, serializedCoinSpendChecking);
+        libzerocoin::CoinSpend newSpendChecking(params, serializedCoinSpendChecking);
         if (!newSpendChecking.Verify(accumulator)) {
             receipt.SetStatus(_("The transaction did not verify"), ZRUPX_BAD_SERIALIZATION);
             return false;

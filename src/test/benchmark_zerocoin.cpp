@@ -338,7 +338,7 @@ Testb_MintAndSpend()
 
 		// Now spend the coin
 		timer.start();
-		CoinSpend spend(gg_Params, gg_Params, *(ggCoins[0]), acc, 0, wAcc, 0, SpendType::SPEND); //(0) presstab
+		CoinSpend spend(gg_Params, *(ggCoins[0]), acc, 0, wAcc, 0, SpendType::SPEND); //(0) presstab
 		timer.stop();
 
 		cout << "\tSPEND ELAPSED TIME: " << timer.duration() << " ms\t" << timer.duration()*0.001 << " s" << endl;
@@ -350,7 +350,7 @@ Testb_MintAndSpend()
 		ss << spend;
 		timer.stop();
 
-		CoinSpend newSpend(gg_Params, gg_Params, ss);
+		CoinSpend newSpend(gg_Params, ss);
 
 		cout << "\tSERIALIZE ELAPSED TIME: " << timer.duration() << " ms\t" << timer.duration()*0.001 << " s" << endl;
 
