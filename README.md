@@ -1,6 +1,6 @@
 # Rupaya
 
-[![Build Status](https://travis-ci.org/rupaya-project/rupx.svg?branch=master)](https://travis-ci.org/rupaya-project/rupx)  [![GitHub version](https://badge.fury.io/gh/rupaya-project%2Frupx.svg)](https://badge.fury.io/gh/rupaya-project%2Frupx) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![HitCount](http://hits.dwyl.io/mo-bay/rupaya-project/rupx.svg)](http://hits.dwyl.io/mo-bay/rupaya-project/rupx)
+[![Build Status](https://travis-ci.org/rupaya-project/rupx.svg?branch=master)](https://travis-ci.org/rupaya-project/rupx)  [![GitHub version](https://badge.fury.io/gh/rupaya-project%2Frupx.svg)](https://badge.fury.io/gh/rupaya-project%2Frupx) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/rupaya-project/rupx/issues) [![HitCount](http://hits.dwyl.io/mo-bay/rupaya-project/rupx.svg)](http://hits.dwyl.io/mo-bay/rupaya-project/rupx)
 
 
 
