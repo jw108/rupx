@@ -349,3 +349,10 @@ dist/RUPAYA-Qt.app/Contents/PlugIns/webview/libqtwebview_webengine.dylib
 dist/RUPAYA-Qt.app/Contents/Resources/bitcoin.icns
 dist/RUPAYA-Qt.app/Contents/Resources/empty.lproj
 dist/RUPAYA-Qt.app/Contents/Resources/qt.conf
+RUPAYA-Qt.app/Contents/Info.plist
+RUPAYA-Qt.app/Contents/PkgInfo
+RUPAYA-Qt.app/Contents/MacOS/RUPAYA-Qt
+RUPAYA-Qt.app/Contents/Resources/bitcoin.icns
+RUPAYA-Qt.app/Contents/Resources/empty.lproj
+RUPAYA-Qt.app/Contents/Resources/Base.lproj/InfoPlist.strings
+dist/RUPAYA-Qt.app/Contents/Frameworks/libgmp.10.dylib
