@@ -44,6 +44,7 @@ void ZRupxControlDialog::setModel(WalletModel *model)
     updateList();
 }
 
+
 //Update the tree widget
 void ZRupxControlDialog::updateList()
 {
