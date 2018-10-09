@@ -18,6 +18,16 @@ namespace Ui {
 class ZRupxControlDialog;
 }
 
+class CZRupxControlWidgetItem : public QTreeWidgetItem
+{
+public:
+    explicit CZRupxControlWidgetItem(QTreeWidget *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
+    explicit CZRupxControlWidgetItem(int type = Type) : QTreeWidgetItem(type) {}
+    explicit CZRupxControlWidgetItem(QTreeWidgetItem *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
+
+    bool operator<(const QTreeWidgetItem &other) const;
+};
+
 class ZRupxControlDialog : public QDialog
 {
     Q_OBJECT
@@ -48,6 +58,7 @@ private:
         COLUMN_CONFIRMATIONS,
         COLUMN_ISSPENDABLE
     };
+    friend class CZRupxControlWidgetItem;
 
 private slots:
     void updateSelection(QTreeWidgetItem* item, int column);
