@@ -112,9 +112,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     if (Params().MineBlocksOnDemand())
         pblock->nVersion = GetArg("-blockversion", pblock->nVersion);
 
-    CBlockIndex* pindexPrev = chainActive.Tip();
-    const int nHeight = pindexPrev->nHeight + 1;
-    pblock->nVersion = 4;
+    pblock->nVersion = 5;   // Supports CLTV activation
 
     // Create coinbase tx
     CMutableTransaction txNew;
@@ -175,6 +173,8 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     {
         LOCK2(cs_main, mempool.cs);
 
+   CBlockIndex* pindexPrev = chainActive.Tip();
+        const int nHeight = pindexPrev->nHeight + 1;
         CCoinsViewCache view(pcoinsTip);
 
         // Priority order to process transactions

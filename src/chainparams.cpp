@@ -110,20 +110,20 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 20; // RUPAYA starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
-        nEnforceBlockUpgradeMajority = 1;
-        nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
-        //nMinerThreads = 0;
+        nEnforceBlockUpgradeMajority = 8100; // 75%
+        nRejectBlockOutdatedMajority = 10260; // 95%
+        nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
+        nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
-        nMaturity = 10;
+        nMaturity = 100;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 82000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPoWBlock = 200;
         //nModifierUpdateBlock = 1;
-        //nZerocoinStartHeight = 863787;
+        //nZerocoinStartHeight = 0;
         //nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
         //nBlockEnforceSerialRange = 895400; //Enforce serial range starting this block
         //nBlockRecalculateAccumulators = 908000; //Trigger a recalculation of accumulators
@@ -241,9 +241,9 @@ public:
         vAlertPubKey = ParseHex("0441368f7cdaaf61526a27262b255af8c8453f967e543b32faee550439f13138fccdf6b8196ddb290081c2796dc053164a849d64ef9331e8ace3f7ebf9d438d846");
         nP2pPort = 10500;
         nRpcPort = 11000;
-        nEnforceBlockUpgradeMajority = 51;
-        nRejectBlockOutdatedMajority = 75;
-        nToCheckBlockUpgradeMajority = 100;
+        nEnforceBlockUpgradeMajority = 4320; // 75%
+        nRejectBlockOutdatedMajority = 5472; // 95%
+        nToCheckBlockUpgradeMajority = 5760; // 4 days
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
@@ -252,7 +252,7 @@ public:
         nMasternodeCountDrift = 4;
         //nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
-        //nZerocoinStartHeight = 201576;
+        //nZerocoinStartHeight = 0;
         //nZerocoinStartTime = 1501776000;
         //nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         //nBlockRecalculateAccumulators = 9908000; //Trigger a recalculation of accumulators
