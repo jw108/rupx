@@ -110,6 +110,7 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 20; // RUPAYA starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
+<<<<<<< HEAD
         nEnforceBlockUpgradeMajority = 1;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
@@ -117,6 +118,15 @@ public:
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
         nMaturity = 10;
+=======
+        nEnforceBlockUpgradeMajority = 8100; // 75%
+        nRejectBlockOutdatedMajority = 10260; // 95%
+        nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
+        nMinerThreads = 0;
+        nTargetTimespan = 1 * 60; // PIVX: 1 day
+        nTargetSpacing = 1 * 60;  // PIVX: 1 minute
+        nMaturity = 100;
+>>>>>>> 2c81a65f2... 7 day CLTV activation
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 82000000 * COIN;
 
@@ -234,6 +244,7 @@ public:
     {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
+<<<<<<< HEAD
         pchMessageStart[0] = 0x4c;
         pchMessageStart[1] = 0x7e;
         pchMessageStart[2] = 0xe5;
@@ -244,6 +255,17 @@ public:
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
+=======
+        pchMessageStart[0] = 0x45;
+        pchMessageStart[1] = 0x76;
+        pchMessageStart[2] = 0x65;
+        pchMessageStart[3] = 0xba;
+        vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
+        nDefaultPort = 51474;
+        nEnforceBlockUpgradeMajority = 4320; // 75%
+        nRejectBlockOutdatedMajority = 5472; // 95%
+        nToCheckBlockUpgradeMajority = 5760; // 4 days
+>>>>>>> 2c81a65f2... 7 day CLTV activation
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
