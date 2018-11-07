@@ -2881,10 +2881,6 @@ bool static FlushStateToDisk(CValidationState& state, FlushStateMode mode)
                 }
                 setDirtyBlockIndex.erase(it++);
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> 2c81a65f2... 7 day CLTV activation
             pblocktree->Sync();
             // Finally flush the chainstate (which may refer to block index entries).
             if (!pcoinsTip->Flush())
