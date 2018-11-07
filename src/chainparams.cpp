@@ -273,10 +273,10 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-         vSeeds.push_back(CDNSSeedData("testnode-01.rupx.io", "testnode-01.rupx.io"));
-         vSeeds.push_back(CDNSSeedData("testnode-02.rupx.io", "testnode-02.rupx.io"));
-         vSeeds.push_back(CDNSSeedData("testnode-03.rupx.io", "testnode-03.rupx.io"));
-         vSeeds.push_back(CDNSSeedData("testnode-04.rupx.io", "testnode-04.rupx.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-01.rupaya.io", "testnode-01.rupaya.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-02.rupaya.io", "testnode-02.rupaya.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-03.rupaya.io", "testnode-03.rupaya.io"));
+         vSeeds.push_back(CDNSSeedData("testnode-04.rupaya.io", "testnode-04.rupaya.io"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 17); // Testnet rupaya addresses start with '7'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 18);  // Testnet rupaya script addresses start with '8'
