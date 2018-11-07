@@ -112,7 +112,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     if (Params().MineBlocksOnDemand())
         pblock->nVersion = GetArg("-blockversion", pblock->nVersion);
 
-    bool fZerocoinActive = GetAdjustedTime() >= chainActive.Tip();
+    bool fZerocoinActive = GetAdjustedTime();
     pblock->nVersion = 5;   // Supports CLTV activation
 
     // Create coinbase tx
