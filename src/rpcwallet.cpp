@@ -2562,13 +2562,8 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() > 2)
         throw runtime_error(
-<<<<<<< HEAD
-            "listmintedzerocoins\n"
-            "\nList all zRUPX mints in the wallet.\n" +
-=======
             "listmintedzerocoins (fVerbose) (fMatureOnly)\n"
-            "\nList all zPIV mints in the wallet.\n" +
->>>>>>> 864aef8ab... [RPC] include mints metadata in 'listmintedzerocoins' output
+            "\nList all zRUPX mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
