@@ -175,6 +175,9 @@ BITCOIN_CORE_H = \
   zrupxchain.h \
   zrupxtracker.h \
   zrupxwallet.h \
+  genwit.h \
+  concurrentqueue.h \
+  lightzrupxthread.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
@@ -265,6 +268,7 @@ libbitcoin_wallet_a_SOURCES = \
   zrupxwallet.cpp \
   zrupxtracker.cpp \
   stakeinput.cpp \
+  genwit.cpp \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library

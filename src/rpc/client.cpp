@@ -143,6 +143,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"searchdzrupx", 1},
         {"searchdzrupx", 2},
         {"getaccumulatorvalues", 0},
+        {"getaccumulatorwitness",2},
+        {"getmintsvalues", 2},
         {"getfeeinfo", 0}
     };
 
