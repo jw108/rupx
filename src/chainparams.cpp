@@ -273,6 +273,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
+         vSeeds.push_back(CDNSSeedData("tnseeder-01.rupaya.io", "tnseeder-01.rupaya.io"));
          vSeeds.push_back(CDNSSeedData("testnode-01.rupaya.io", "testnode-01.rupaya.io"));
          vSeeds.push_back(CDNSSeedData("testnode-02.rupaya.io", "testnode-02.rupaya.io"));
          vSeeds.push_back(CDNSSeedData("testnode-03.rupaya.io", "testnode-03.rupaya.io"));
