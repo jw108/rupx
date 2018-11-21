@@ -122,7 +122,7 @@ public:
         //nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
-        nMaturity = 100;
+        nMaturity = 10;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 82000000 * COIN;
 
