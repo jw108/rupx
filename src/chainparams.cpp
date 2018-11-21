@@ -53,10 +53,16 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0x001")); 
+    (25, uint256("0x000003ae47f0ddb3bc5d5f00b60cec8cb4a7af8eeda56fd2b4f8b69e37654067"))
+    (50, uint256("0x000000290cc059e3d3c359c3f6d22ddc6ffdad30e65f65e5bb0b9f1db4b043bb"))
+    (75, uint256("0x0000003322f39bc94a4bf0cf0fa76a699756d962a241a863d3c759fb8457d75a"))
+    (100, uint256("0x0000000ebc5aca23a5f995941ca518dca50c7d592ebc7ce83b16647816d96c10"))
+    (200, uint256("0x00000000527d3e30820e35c6ff834a00feaa8f59e1a4318d7087154206c7bdd9"))
+    (90686, uint256("0x3d004615ce7548e9ea730c0739dd2839a1b711d251151e43a6170e61b827e7ab"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1536849316, // * UNIX timestamp of last checkpoint block
-    277,    // * total number of transactions between genesis and last checkpoint
+    1542818674, // * UNIX timestamp of last checkpoint block
+    205937,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -116,7 +122,7 @@ public:
         //nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // RUPAYA: 1 day
         nTargetSpacing = 1 * 60;  // RUPAYA: 1 minute
-        nMaturity = 10;
+        nMaturity = 100;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 82000000 * COIN;
 
