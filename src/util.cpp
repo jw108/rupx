@@ -424,13 +424,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\RUPAYACORE
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\RUPAYACORE
-// Mac: ~/Library/Application Support/RUPAYACORE
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\RupayaCore
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\RupayaCore
+// Mac: ~/Library/Application Support/RupayaCore
 // Unix: ~/.rupayacore
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "RUPAYACORE";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "RupayaCore";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -442,7 +442,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "RUPAYACORE";
+    return pathRet / "RupayaCore";
 #else
     // Unix
     return pathRet / ".rupayacore";
