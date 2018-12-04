@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_PROPOSALTABLEMODEL_H
-#define PIVX_QT_PROPOSALTABLEMODEL_H
+#ifndef RUPAYAQT_PROPOSALTABLEMODEL_H
+#define RUPAYAQT_PROPOSALTABLEMODEL_H
 
 #include "bitcoinunits.h"
 
@@ -79,4 +79,4 @@ public Q_SLOTS:
     void onResult(QNetworkReply *result);
 };
 
-#endif // PIVX_QT_PROPOSALTABLEMODEL_H
+#endif // RUPAYAQT_PROPOSALTABLEMODEL_H

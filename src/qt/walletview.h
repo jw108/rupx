@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_WALLETVIEW_H
-#define PIVX_QT_WALLETVIEW_H
+#ifndef RUPAYAQT_WALLETVIEW_H
+#define RUPAYAQT_WALLETVIEW_H
 
 #include "amount.h"
 #include "askpassphrasedialog.h"
@@ -151,4 +151,4 @@ signals:
     void incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address);
 };
 
-#endif // PIVX_QT_WALLETVIEW_H
+#endif // RUPAYAQT_WALLETVIEW_H

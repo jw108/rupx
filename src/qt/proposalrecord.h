@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_PROPOSALRECORD_H
-#define PIVX_QT_PROPOSALRECORD_H
+#ifndef RUPAYAQT_PROPOSALRECORD_H
+#define RUPAYAQT_PROPOSALRECORD_H
 
 #include "amount.h"
 #include "uint256.h"
@@ -54,4 +54,4 @@ public:
     double percentage;
 };
 
-#endif // PIVX_QT_PROPOSALRECORD_H
+#endif // RUPAYAQT_PROPOSALRECORD_H

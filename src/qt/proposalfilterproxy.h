@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_PROPOSALFILTERPROXY_H
-#define PIVX_QT_PROPOSALFILTERPROXY_H
+#ifndef RUPAYAQT_PROPOSALFILTERPROXY_H
+#define RUPAYAQT_PROPOSALFILTERPROXY_H
 
 #include "amount.h"
 
@@ -44,4 +44,4 @@ private:
     CAmount minNoVotes;
     CAmount minAbstainVotes;
 };
-#endif // PIVX_QT_PROPOSALFILTERPROXY_H
+#endif // RUPAYAQT_PROPOSALFILTERPROXY_H
