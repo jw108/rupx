@@ -645,8 +645,8 @@
         <translation>Tabblad werkbalk</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -669,11 +669,11 @@
         <translation>Bekijk masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;Over RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>&amp;Over Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Rupaya Core</source>
         <translation>Toon informatie over RUPAYA Kern</translation>
     </message>
     <message>
@@ -729,12 +729,12 @@
         <translation>Block verkenner venster</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Toon het RUPAYA Core help bericht om een ​​lijst te krijgen met mogelijke RUPAYA command line opties</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>Toon het Rupaya Core help bericht om een ​​lijst te krijgen met mogelijke RUPAYA command line opties</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core client</translation>
+        <source>Rupaya Core client</source>
+        <translation>Rupaya Core client</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to RUPAYA network</source>
@@ -1231,16 +1231,16 @@ MultiSend: %1</translation>
         <translation>versie</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>Over RUPAYA Core</translation>
+        <source>About Rupaya Core</source>
+        <translation>Over Rupaya Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1286,16 +1286,16 @@ MultiSend: %1</translation>
         <translation>Welkom</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Welkom bij RUPAYA Core.</translation>
+        <source>Welcome to Rupaya Core.</source>
+        <translation>Welkom bij Rupaya Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Aangezien dit de eerste keer is dat het programma is gestart, kun je kiezen waar RUPAYA Core zijn data opslaat.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>Aangezien dit de eerste keer is dat het programma is gestart, kun je kiezen waar Rupaya Core zijn data opslaat.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core zal een kopie van de RUPAYA blockchain downloaden en opslaan. Tenminste %1GB aan data zal worden opgeslagen in deze map en het zal over de tijd groeien. De portemonnee zal ook in deze map worden opgeslagen.</translation>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Rupaya Core zal een kopie van de RUPAYA blockchain downloaden en opslaan. Tenminste %1GB aan data zal worden opgeslagen in deze map en het zal over de tijd groeien. De portemonnee zal ook in deze map worden opgeslagen.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1306,8 +1306,8 @@ MultiSend: %1</translation>
         <translation>Gebruik een aangepaste data directory:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -4079,8 +4079,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core is aan het afsluiten...</translation>
+        <source>Rupaya Core is shutting down...</source>
+        <translation>Rupaya Core is aan het afsluiten...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4229,7 +4229,7 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Kern</translation>
     </message>
     <message>
@@ -4245,7 +4245,7 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>De Dash Kernontwikkelaars</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
+        <source>The Rupaya Core developers</source>
         <translation>De RUPAYA Kernontwikkelaars</translation>
     </message>
     <message>
@@ -4910,8 +4910,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Het berekende accumulatie controlepunt is niet wat wordt geregistreerd door de blokindex</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
-        <translation>Kan geen vergrendeling op data directory %s verkrijgen. RUPAYA Core loopt waarschijnlijk al.</translation>
+        <source>Cannot obtain a lock on data directory %s. Rupaya Core is probably already running.</source>
+        <translation>Kan geen vergrendeling op data directory %s verkrijgen. Rupaya Core loopt waarschijnlijk al.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -5086,8 +5086,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in de OpenSSL Toolkit &lt;https://www.openssl.org/&gt; en cryptografische software geschreven door Eric Young en UPnP software geschreven door Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
-        <translation>Niet mogelijk te binden aan %s op deze computer. RUPAYA Core loopt waarschijnlijk al.</translation>
+        <source>Unable to bind to %s on this computer. Rupaya Core is probably already running.</source>
+        <translation>Niet mogelijk te binden aan %s op deze computer. Rupaya Core loopt waarschijnlijk al.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -5114,8 +5114,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Waarschuwing: -paytxfee is zeer hoog ingesteld! Dit zijn de transactie kosten die je betaalt als je een transactie verstuurt.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
-        <translation>Waarschuwing: Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd staat, werkt RUPAYA Core niet goed.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Rupaya Core will not work properly.</source>
+        <translation>Waarschuwing: Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd staat, werkt Rupaya Core niet goed.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5266,7 +5266,7 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Copyright (C) 2014-%i The Dash Kernontwikkelaars</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
+        <source>Copyright (C) 2015-%i The Rupaya Core Developers</source>
         <translation>Copyright (C) 2015-%i The RUPAYA Kernontwikkelaars</translation>
     </message>
     <message>
@@ -5354,8 +5354,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Error tijdens het laden van wallet.dat: Portemonnee corrupt</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
-        <translation>Fout bij het laden van wallet.dat: Portemonnee vereist een nieuwere versie van RUPAYA Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
+        <translation>Fout bij het laden van wallet.dat: Portemonnee vereist een nieuwere versie van Rupaya Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5470,8 +5470,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Informatie</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
-        <translation>Initialisatie saniteitscontrole mislukt. RUPAYA Core wordt afgesloten.</translation>
+        <source>Initialization sanity check failed. Rupaya Core is shutting down.</source>
+        <translation>Initialisatie saniteitscontrole mislukt. Rupaya Core wordt afgesloten.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -6294,8 +6294,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Portemonnee is vergrendeld.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>Wallet moest worden herschreven: start RUPAYA Core opnieuw om te voltooien</translation>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
+        <translation>Wallet moest worden herschreven: start Rupaya Core opnieuw om te voltooien</translation>
     </message>
     <message>
         <source>Wallet options:</source>

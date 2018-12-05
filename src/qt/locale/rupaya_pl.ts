@@ -509,7 +509,7 @@
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>&amp;Rdzeń RUPAYA</translation>
     </message>
     <message>
@@ -529,11 +529,11 @@
         <translation>Przeglądaj masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Rupaya Core</source>
         <translation>&amp;O rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Rupaya Core</source>
         <translation>Pokaż informacje o rdzeniu bitcoina</translation>
     </message>
     <message>
@@ -585,11 +585,11 @@
         <translation>Okno eksplorera bloków</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
         <translation>Pokaż wiadomość pomocy rdzenia RUPAYA, aby dostać listę możliwych opcji RUPAYA command-line</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
+        <source>Rupaya Core client</source>
         <translation>Rdzeń RUPAYA klient</translation>
     </message>
     <message>
@@ -899,7 +899,7 @@ MultiWysyłlka: %1</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>&amp;Rdzeń RUPAYA</translation>
     </message>
     </context>
@@ -914,7 +914,7 @@ MultiWysyłlka: %1</translation>
         <translation>Użyj niestandardowej ścieżki danych</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>&amp;Rdzeń RUPAYA</translation>
     </message>
     <message>
@@ -1929,7 +1929,7 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations </translati
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>&amp;Rdzeń RUPAYA</translation>
     </message>
     </context>

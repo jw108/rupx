@@ -645,8 +645,8 @@
         <translation>Onglets de la barre d'outils</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -669,12 +669,12 @@
         <translation>Afficher les masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>A &amp;propos de RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>A &amp;propos de Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Afficher les information concernant RUPAYA Core</translation>
+        <source>Show information about Rupaya Core</source>
+        <translation>Afficher les information concernant Rupaya Core</translation>
     </message>
     <message>
         <source>Modify configuration options for RUPAYA</source>
@@ -729,12 +729,12 @@
         <translation>Fenêtre de Explorateur de Bloc</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Afficher les message d'aide de RUPAYA Core pour avoir les options pour ligne de commande</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>Afficher les message d'aide de Rupaya Core pour avoir les options pour ligne de commande</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core client</translation>
+        <source>Rupaya Core client</source>
+        <translation>Rupaya Core client</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to RUPAYA network</source>
@@ -1211,16 +1211,16 @@ Adresse : %4
         <translation>version</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>A propos de RUPAYA Core</translation>
+        <source>About Rupaya Core</source>
+        <translation>A propos de Rupaya Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1262,12 +1262,12 @@ Adresse : %4
         <translation>Bienvenu</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Bienvenue à RUPAYA Core</translation>
+        <source>Welcome to Rupaya Core.</source>
+        <translation>Bienvenue à Rupaya Core</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Comme c'est la première fois que le programme est lancé, vous pouvez choisir où RUPAYA Core va stocker ses données.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>Comme c'est la première fois que le programme est lancé, vous pouvez choisir où Rupaya Core va stocker ses données.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1278,8 +1278,8 @@ Adresse : %4
         <translation>Utiliser un répertoire spécifique de données </translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -4080,8 +4080,8 @@ Soit monnayer des dénominations plus élevées (moins d'intrants sont nécessai
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     </context>
 <context>
@@ -4461,7 +4461,7 @@ Soit monnayer des dénominations plus élevées (moins d'intrants sont nécessai
         <translation>Erreur de chargement du fichier wallet.dat: Portefeuille corrompu</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
         <translation>Erreur de chargement du fichier wallet.dat: Le portefeuille nécessite une version plus récente du RUPAYA core</translation>
     </message>
     <message>
@@ -5053,8 +5053,8 @@ Soit monnayer des dénominations plus élevées (moins d'intrants sont nécessai
         <translation>Le portefeuille est vérouillé.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>Le portefeuille doit être réécrit: redémarrez RUPAYA Core pour terminer</translation>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
+        <translation>Le portefeuille doit être réécrit: redémarrez Rupaya Core pour terminer</translation>
     </message>
     <message>
         <source>Wallet options:</source>

@@ -20,13 +20,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "RUPAYA"
-            VALUE "FileDescription",    "RUPAYA Core (OSS GUI client for RUPAYA)"
+            VALUE "FileDescription",    "Rupaya Core (OSS GUI client for RUPAYA)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "rupaya-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "rupaya-qt.exe"
-            VALUE "ProductName",        "RUPAYA Core"
+            VALUE "ProductName",        "Rupaya Core"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

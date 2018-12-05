@@ -832,7 +832,7 @@
     <message>
         <location line="-446"/>
         <location line="+928"/>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -862,12 +862,12 @@
     </message>
     <message>
         <location line="+31"/>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -937,12 +937,12 @@
     </message>
     <message>
         <location line="+4"/>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+233"/>
-        <source>RUPAYA Core client</source>
+        <source>Rupaya Core client</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
@@ -1578,7 +1578,7 @@ Address: %4
     </message>
     <message>
         <location line="+0"/>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1589,7 +1589,7 @@ Address: %4
     </message>
     <message>
         <location line="+4"/>
-        <source>About RUPAYA Core</source>
+        <source>About Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1647,17 +1647,17 @@ Address: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Welcome to RUPAYA Core.</source>
+        <source>Welcome to Rupaya Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1672,7 +1672,7 @@ Address: %4
     </message>
     <message>
         <location filename="../intro.cpp" line="+77"/>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5218,7 +5218,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <name>ShutdownWindow</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+75"/>
-        <source>RUPAYA Core is shutting down...</source>
+        <source>Rupaya Core is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5413,7 +5413,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+36"/>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5433,7 +5433,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>The RUPAYA Core developers</source>
+        <source>The Rupaya Core developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6291,7 +6291,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+2"/>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Rupaya Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6511,7 +6511,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+4"/>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Rupaya Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6546,7 +6546,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Rupaya Core will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6736,7 +6736,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
+        <source>Copyright (C) 2015-%i The Rupaya Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6846,7 +6846,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7001,7 +7001,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
+        <source>Initialization sanity check failed. Rupaya Core is shutting down.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8028,7 +8028,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

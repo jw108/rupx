@@ -16,7 +16,7 @@ BITCOIND_USER=${BITCOIND_USER:-rupaya}
 BITCOIND_GROUP=${BITCOIND_GROUP:-rupaya}
 BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/rupayad}
 
-name="RUPAYA Core Daemon"
+name="Rupaya Core Daemon"
 description="RUPAYA crypto-currency p2p network daemon"
 
 command="/usr/bin/rupayad"

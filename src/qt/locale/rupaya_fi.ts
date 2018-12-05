@@ -565,7 +565,7 @@
         <translation>&amp;Apua</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ydin</translation>
     </message>
     <message>
@@ -585,11 +585,11 @@
         <translation>Selaa masternodeja</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>RUPAYA Core &amp;ytimestä</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>Rupaya Core &amp;ytimestä</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Rupaya Core</source>
         <translation>Näytä tietoja RUPAYA Ytimestä</translation>
     </message>
     <message>
@@ -645,11 +645,11 @@
         <translation>Lohkon tutkija näkymä</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
         <translation>Näytä RUPAYA Ydin apuviesti saadaksesi lista mahdollisista RUPAYA komentolinja komennoista.</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
+        <source>Rupaya Core client</source>
         <translation>RUPAYA Ydin asiakasohjelma</translation>
     </message>
     <message>
@@ -908,7 +908,7 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ydin</translation>
     </message>
     <message>
@@ -927,11 +927,11 @@
         <translation>Tervetuloa</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
+        <source>Welcome to Rupaya Core.</source>
         <translation>Tervetuloa RUPAYA Ytimeen.</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ydin</translation>
     </message>
     <message>
@@ -2057,7 +2057,7 @@ Please check the address and try again.</source>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
+        <source>Rupaya Core is shutting down...</source>
         <translation>RUPAYA core sammuu...</translation>
     </message>
     <message>
@@ -2199,7 +2199,7 @@ Please check the address and try again.</source>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ydin</translation>
     </message>
     <message>
@@ -2215,7 +2215,7 @@ Please check the address and try again.</source>
         <translation>Dash Core kehittäjät</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
+        <source>The Rupaya Core developers</source>
         <translation>RUPAYA core kehittäjät</translation>
     </message>
     <message>
@@ -2568,7 +2568,7 @@ Please check the address and try again.</source>
         <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko korruptoitunut</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
         <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version RUPAYA Coresta</translation>
     </message>
     <message>

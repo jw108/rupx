@@ -645,8 +645,8 @@
         <translation>Schede degli strumenti</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -669,12 +669,12 @@
         <translation>Esplora i masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;Informazioni RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>&amp;Informazioni Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Visualizza informazioni su RUPAYA Core</translation>
+        <source>Show information about Rupaya Core</source>
+        <translation>Visualizza informazioni su Rupaya Core</translation>
     </message>
     <message>
         <source>Modify configuration options for RUPAYA</source>
@@ -729,12 +729,12 @@
         <translation>Finestra Block Explorer</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Mostra il messaggio di aiuto RUPAYA Core per ottenere un elenco con le possibili opzioni di riga di comando RUPAYA</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>Mostra il messaggio di aiuto Rupaya Core per ottenere un elenco con le possibili opzioni di riga di comando RUPAYA</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core client</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to RUPAYA network</source>
@@ -1219,16 +1219,16 @@ MultiSend: %1</translation>
         <translation>versione</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>Informazioni su RUPAYA Core</translation>
+        <source>About Rupaya Core</source>
+        <translation>Informazioni su Rupaya Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1274,16 +1274,16 @@ MultiSend: %1</translation>
         <translation>Benvenuto</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
+        <source>Welcome to Rupaya Core.</source>
         <translation>Benvenuto in RUPAYAIX Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove RUPAYA Core salverà i propri dati.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove Rupaya Core salverà i propri dati.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core scaricherà e salverà una copia della blockchain RUPAYA. Verranno salvati almeno %1GB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Rupaya Core scaricherà e salverà una copia della blockchain RUPAYA. Verranno salvati almeno %1GB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1294,8 +1294,8 @@ MultiSend: %1</translation>
         <translation>Utilizza una cartella dati personalizzata:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -2554,8 +2554,8 @@ Per cambiare la percentuale (riavvio non necessario):
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     </context>
 <context>

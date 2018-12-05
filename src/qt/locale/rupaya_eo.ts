@@ -645,7 +645,7 @@
         <translation>Iloj langeto</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA kerno</translation>
     </message>
     <message>
@@ -669,11 +669,11 @@
         <translation>Foliumi mastro-nodo</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Rupaya Core</source>
         <translation>&amp;Pri RUPAYA Kerno</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Rupaya Core</source>
         <translation>Montri informon pri RUPAYA Kerno</translation>
     </message>
     <message>
@@ -729,11 +729,11 @@
         <translation>Bloko esplorilo fenestro</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
         <translation>Montri la RUPAYA Kore help-mesaĝo por havi liston de havebla RUPAYA komandlinion opciojn</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
+        <source>Rupaya Core client</source>
         <translation>RUPAYA Kerno kliento</translation>
     </message>
     <message numerus="yes">
@@ -1223,7 +1223,7 @@ Muktisendi: %1</translation>
         <translation>versio</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA kerno</translation>
     </message>
     <message>
@@ -1231,7 +1231,7 @@ Muktisendi: %1</translation>
         <translation>(%1-bajto)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
+        <source>About Rupaya Core</source>
         <translation>Pri RUPAYA Kerno</translation>
     </message>
     <message>
@@ -1274,15 +1274,15 @@ Muktisendi: %1</translation>
         <translation>Bonvenon</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
+        <source>Welcome to Rupaya Core.</source>
         <translation>Bonvenon al la RUPAYA Kerno.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
         <translation>Ĉar estas la unuan fojon ke la programo estas lanĉita, vi povas elekti kie RUPAYA kernk storigis sian datumojn. </translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>RUPAYA kerno elŝutos kaj konservi kopion de la RUPAYA blokĉeno. Almenaŭ %1GB datumoj stokitos en ĉi tiun dosierujo, kaj ĝi kresko kun la tempo. Monujo stokitos en ĉi tiun dosierujo.</translation>
     </message>
     <message>
@@ -1294,7 +1294,7 @@ Muktisendi: %1</translation>
         <translation>Uzi kutimon datumojn dosierujo:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA kerno</translation>
     </message>
     <message>
@@ -2407,7 +2407,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
+        <source>Rupaya Core is shutting down...</source>
         <translation>RUPAYA kerno fermanta...</translation>
     </message>
     </context>
@@ -2461,7 +2461,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA kerno</translation>
     </message>
     <message>
@@ -2473,7 +2473,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>La Dash kerno programistoj</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
+        <source>The Rupaya Core developers</source>
         <translation>La RUPAYA kerno programistoj</translation>
     </message>
     </context>

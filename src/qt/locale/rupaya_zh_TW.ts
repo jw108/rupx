@@ -557,8 +557,8 @@
         <translation>Tabs 工具列</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -577,12 +577,12 @@
         <translation>瀏覽 Masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;關於 RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>&amp;關於 Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>顯示 RUPAYA Core 相關資訊</translation>
+        <source>Show information about Rupaya Core</source>
+        <translation>顯示 Rupaya Core 相關資訊</translation>
     </message>
     <message>
         <source>Modify configuration options for RUPAYA</source>
@@ -637,12 +637,12 @@
         <translation>區塊鏈瀏覽視窗</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>顯示 RUPAYA Core 幫助訊息以取得 RUPAYA 命令列表選項</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>顯示 Rupaya Core 幫助訊息以取得 RUPAYA 命令列表選項</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core 客戶端</translation>
+        <source>Rupaya Core client</source>
+        <translation>Rupaya Core 客戶端</translation>
     </message>
     </context>
 <context>
@@ -671,15 +671,15 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     </context>
 <context>
@@ -893,8 +893,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     </context>
 <context>

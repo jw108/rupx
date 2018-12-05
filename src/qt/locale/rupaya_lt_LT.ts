@@ -645,8 +645,8 @@
         <translation>Skirtukų įrankių juosta</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -669,12 +669,12 @@
         <translation>Naršyti masternod'us</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;Apie RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>&amp;Apie Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Rodyti informaciją apie RUPAYA Core</translation>
+        <source>Show information about Rupaya Core</source>
+        <translation>Rodyti informaciją apie Rupaya Core</translation>
     </message>
     <message>
         <source>Modify configuration options for RUPAYA</source>
@@ -729,12 +729,12 @@
         <translation>Blokų naršyklės langas</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Rodyti RUPAYA Core žinyną, kad gautumėte sąrašą su galimomis RUPAYA komandinės eilutės parinktimis</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>Rodyti Rupaya Core žinyną, kad gautumėte sąrašą su galimomis RUPAYA komandinės eilutės parinktimis</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core piniginė</translation>
+        <source>Rupaya Core client</source>
+        <translation>Rupaya Core piniginė</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to RUPAYA network</source>
@@ -1223,16 +1223,16 @@ MultiSend: %1</translation>
         <translation>versija</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bitai)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>Apie RUPAYA Core</translation>
+        <source>About Rupaya Core</source>
+        <translation>Apie Rupaya Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1278,16 +1278,16 @@ MultiSend: %1</translation>
         <translation>Sveiki</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Sveiki atvykę į RUPAYA Core</translation>
+        <source>Welcome to Rupaya Core.</source>
+        <translation>Sveiki atvykę į Rupaya Core</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Kadangi programa paleista pirmą kartą, galite pasirinkti kur RUPAYA Core saugos savo duomenis.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>Kadangi programa paleista pirmą kartą, galite pasirinkti kur Rupaya Core saugos savo duomenis.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core atsisiųs ir saugos RUPAYA blockchain'o kopiją. Šiame kataloge bus saugomas ne mažesnis kaip %1GB duomenų kiekis, kuris laikui bėgant augs. Piniginė taip pat bus saugoma šiame kataloge.</translation>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Rupaya Core atsisiųs ir saugos RUPAYA blockchain'o kopiją. Šiame kataloge bus saugomas ne mažesnis kaip %1GB duomenų kiekis, kuris laikui bėgant augs. Piniginė taip pat bus saugoma šiame kataloge.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1298,8 +1298,8 @@ MultiSend: %1</translation>
         <translation>Naudoti pasirinktą duomenų katalogą:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -3229,8 +3229,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos tos pačio nominal
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     </context>
 <context>
@@ -3494,8 +3494,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos tos pačio nominal
         <translation>Klaida kraunant wallet.dat: Piniginė yra sugadinta</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
-        <translation>Klaida kraunant wallet.dat: Piniginė reikalauja naujesnės RUPAYA Core versijos</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
+        <translation>Klaida kraunant wallet.dat: Piniginė reikalauja naujesnės Rupaya Core versijos</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -3726,8 +3726,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos tos pačio nominal
         <translation>Piniginė užrakinta.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>Piniginę reikia perrašyti: paleiskite RUPAYA Core iš naujo</translation>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
+        <translation>Piniginę reikia perrašyti: paleiskite Rupaya Core iš naujo</translation>
     </message>
     <message>
         <source>Wallet options:</source>

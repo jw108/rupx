@@ -113,7 +113,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
 
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
 
-    QString windowTitle = tr("RUPAYA Core") + " - ";
+    QString windowTitle = tr("Rupaya Core") + " - ";
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
     enableWallet = !GetBoolArg("-disablewallet", false);
@@ -399,8 +399,8 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(networkStyle->getAppIcon(), tr("&About RUPAYA Core"), this);
-    aboutAction->setStatusTip(tr("Show information about RUPAYA Core"));
+    aboutAction = new QAction(networkStyle->getAppIcon(), tr("&About Rupaya Core"), this);
+    aboutAction->setStatusTip(tr("Show information about Rupaya Core"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/qt-project.org/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
@@ -467,7 +467,7 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options"));
+    showHelpMessageAction->setStatusTip(tr("Show the Rupaya Core help message to get a list with possible RUPAYA command-line options"));
 
     connect(proposalAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(proposalAction, SIGNAL(triggered()), this, SLOT(gotoProposalPage()));
@@ -705,7 +705,7 @@ void BitcoinGUI::createTrayIcon(const NetworkStyle* networkStyle)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("RUPAYA Core client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("Rupaya Core client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->hide();
@@ -1053,7 +1053,7 @@ void BitcoinGUI::setNumBlocks(int count)
 
 void BitcoinGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret)
 {
-    QString strTitle = tr("RUPAYA Core"); // default title
+    QString strTitle = tr("Rupaya Core"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;

@@ -1,4 +1,4 @@
-RUPAYA Core
+Rupaya Core
 =====================
 
 Intro
@@ -13,7 +13,7 @@ Setup
 -----
 Unpack the files into a directory and run rupaya-qt.exe.
 
-RUPAYA Core is the original RUPAYA client and it builds the backbone of the network.
+Rupaya Core is the original RUPAYA client and it builds the backbone of the network.
 However, it downloads and stores the entire history of RUPAYA transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.

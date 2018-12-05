@@ -645,7 +645,7 @@
         <translation>flik vertygsrad</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Kärna</translation>
     </message>
     <message>
@@ -669,11 +669,11 @@
         <translation>Utforska masternoder</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Rupaya Core</source>
         <translation>Om RUPAYA Kärnan</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Rupaya Core</source>
         <translation>Visa information om RUPAYA Kärnan</translation>
     </message>
     <message>
@@ -729,11 +729,11 @@
         <translation>Blockera utforskarfönstret</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Visa RUPAYA Core hjälp meddelande för att få en lista med möjliga RUPAYA kommandorad alternativ</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>Visa Rupaya Core hjälp meddelande för att få en lista med möjliga RUPAYA kommandorad alternativ</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
+        <source>Rupaya Core client</source>
         <translation>RUPAYA kärn klient</translation>
     </message>
     <message numerus="yes">
@@ -1231,7 +1231,7 @@ MultiSend: %1</translation>
         <translation>version</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Kärna</translation>
     </message>
     <message>
@@ -1239,7 +1239,7 @@ MultiSend: %1</translation>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
+        <source>About Rupaya Core</source>
         <translation>Om RUPAYA Kärna</translation>
     </message>
     <message>
@@ -1286,15 +1286,15 @@ MultiSend: %1</translation>
         <translation>Välkommen</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Välkommen till RUPAYA Core.</translation>
+        <source>Welcome to Rupaya Core.</source>
+        <translation>Välkommen till Rupaya Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Eftersom detta är första gången programmet körs så kan du välja var RUPAYA Core ska spara sin data.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>Eftersom detta är första gången programmet körs så kan du välja var Rupaya Core ska spara sin data.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>RUPAYA Kärnan kommer ladda ner och spara en kopia av RUPAYA block chain. Minst %1GB data kommer sparas i denna katalog och den kommer växa med tiden. Plånboken kommer också sparas i denna katalog.</translation>
     </message>
     <message>
@@ -1306,8 +1306,8 @@ MultiSend: %1</translation>
         <translation>Använd en skräddarsydd data katalog</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -3995,8 +3995,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core stängs ner...</translation>
+        <source>Rupaya Core is shutting down...</source>
+        <translation>Rupaya Core stängs ner...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4145,8 +4145,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4161,8 +4161,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Dash Core utvecklarna</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>RUPAYA Core utvecklarna</translation>
+        <source>The Rupaya Core developers</source>
+        <translation>Rupaya Core utvecklarna</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -4826,7 +4826,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Beräknade ackumulator kontrollstation är inte vad som sparats av block index</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Rupaya Core is probably already running.</source>
         <translation>Kan ej låsa in på data katalog %s. RUPAYA Kärna körs förmodligen redan.</translation>
     </message>
     <message>
@@ -5002,8 +5002,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Denna produkt inkluderar mjukvara utvecklad av OpenSSL Projektet för användning i OpenSSL Toolkit &lt;https://www.openssl.org/&gt; och kryptografisk mjukvara skriven av Eric Young och UPnP mjukvara skriven av Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
-        <translation>Kan inte binda till %s på denna dator. RUPAYA Core körs förmodligen redan.</translation>
+        <source>Unable to bind to %s on this computer. Rupaya Core is probably already running.</source>
+        <translation>Kan inte binda till %s på denna dator. Rupaya Core körs förmodligen redan.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -5030,8 +5030,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Varning: -maxtxfee är sätt väldigt högt! Detta är transaktionsavgiften du kommer betala om du skickar en transaktion.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
-        <translation>Varning: Var vänlig kontrollera att din dators tid och datum är korrekt! Om din klocka är fel så kommer RUPAYA Core inte att fungera korrekt.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Rupaya Core will not work properly.</source>
+        <translation>Varning: Var vänlig kontrollera att din dators tid och datum är korrekt! Om din klocka är fel så kommer Rupaya Core inte att fungera korrekt.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5182,8 +5182,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Copyright (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
-        <translation>Copyright (C) 2015-%i The RUPAYA Core Developers</translation>
+        <source>Copyright (C) 2015-%i The Rupaya Core Developers</source>
+        <translation>Copyright (C) 2015-%i The Rupaya Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5270,7 +5270,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Fel vid laddning av wallet.dat: Plånbok korrupterad</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
         <translation>Fel vid laddning av wallet.dat: Plånbok  kräver nyare RUPAYA Kärna version</translation>
     </message>
     <message>
@@ -5386,7 +5386,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Information</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
+        <source>Initialization sanity check failed. Rupaya Core is shutting down.</source>
         <translation>Initierings renlighetscheck misslyckades. RUPAYA Kärna stängs ner.</translation>
     </message>
     <message>
@@ -6210,7 +6210,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Plånboken är låst.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
         <translation>Plånbok behöver skrivas om: starta om RUPAYA Kärna för att göra klart</translation>
     </message>
     <message>

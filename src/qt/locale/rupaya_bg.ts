@@ -645,7 +645,7 @@
         <translation>Колан с инструменти</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ядро</translation>
     </message>
     <message>
@@ -669,11 +669,11 @@
         <translation>Разгледай мастърноудове</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Rupaya Core</source>
         <translation>&amp;Относно RUPAYA Ядрото</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Rupaya Core</source>
         <translation>Информациза за RUPAYA Ядрото</translation>
     </message>
     <message>
@@ -729,11 +729,11 @@
         <translation>Прозорец на блок сондата</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
         <translation>Разкрийте Помощ за RUPAYA Ядрото, за да видите списък с възможни писмени команди.</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
+        <source>Rupaya Core client</source>
         <translation>Клиент RUPAYA Ядро</translation>
     </message>
     <message numerus="yes">
@@ -1227,7 +1227,7 @@ Address: %4
         <translation>версия</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ядро</translation>
     </message>
     <message>
@@ -1235,7 +1235,7 @@ Address: %4
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
+        <source>About Rupaya Core</source>
         <translation>Относно RUPAYA Ядрото</translation>
     </message>
     <message>
@@ -1282,15 +1282,15 @@ Address: %4
         <translation>Привет</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
+        <source>Welcome to Rupaya Core.</source>
         <translation>Добре Дошли в RUPAYA Ядрото</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
         <translation>Тъй като това е първия път, в който стартирате програмата, имате възможността да изберете къде RUPAYA Ядрото ще съхранява своите данни.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>RUPAYA Ядрото ще изтегли и запише копие на целия RUPAYA блокчейн. Поне %1 гигабайта ще бъдат съхранявани в тази папка, като тенденцията е файла да расте. Портфейла също ще бъде запазен в тази папка.</translation>
     </message>
     <message>
@@ -1302,7 +1302,7 @@ Address: %4
         <translation>Задай своя папка за данни:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ядро</translation>
     </message>
     <message>
@@ -4067,7 +4067,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
+        <source>Rupaya Core is shutting down...</source>
         <translation>Изключване на RUPAYA Ядрото...</translation>
     </message>
     <message>
@@ -4217,7 +4217,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
+        <source>Rupaya Core</source>
         <translation>RUPAYA Ядро</translation>
     </message>
     <message>
@@ -4233,8 +4233,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Dash Core разработчици</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>RUPAYA Core разработчици</translation>
+        <source>The Rupaya Core developers</source>
+        <translation>Rupaya Core разработчици</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -4898,7 +4898,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Изчисления чекпойнт на акумулатора не е същия като записания в блок индекса.</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Rupaya Core is probably already running.</source>
         <translation>Не може да заключи папката с данни %s. RUPAYA Портфейла вероятно вече е стартиран.</translation>
     </message>
     <message>
@@ -5070,7 +5070,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Този продукт включва софтуер разработен от OpenSSL Project &lt;https://www.openssl.org/&gt; и крипто софтуер написан от Ерик Юнг и UPnP софтуер от Томас Бернард.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Rupaya Core is probably already running.</source>
         <translation>Не може да се прикачи към %s на този компютър. RUPAYA Портфейла вероятно вече е стартиран.</translation>
     </message>
     <message>
@@ -5098,7 +5098,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Внимание: -paytxfee е зададена твърде голяма! Това е преводната такса, която ще платите ако изпратите този превод.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Rupaya Core will not work properly.</source>
         <translation>Внимание: Проверете дали датата и часа на компютъра са верни! Ако Вашият часовник греши, RUPAYA Портфейла няма да работи правилно.</translation>
     </message>
     <message>
@@ -5250,8 +5250,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Всички права запазени (c) 2014-%i Dash Core разработчици</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
-        <translation>Всички права запазени (c) 2015-%i RUPAYA Core разработчици</translation>
+        <source>Copyright (C) 2015-%i The Rupaya Core Developers</source>
+        <translation>Всички права запазени (c) 2015-%i Rupaya Core разработчици</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5338,7 +5338,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Грешка в зареждането на wallet.dat: Портфейла е повреден</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
         <translation>Грешка в зареждането на wallet.dat: Портфейла изисква по-нова версия</translation>
     </message>
     <message>
@@ -5454,7 +5454,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Информация</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
+        <source>Initialization sanity check failed. Rupaya Core is shutting down.</source>
         <translation>Стартирането на проверка на здравословното състояние на портфейла се провали. Изключваме Портфейла.</translation>
     </message>
     <message>
@@ -6278,7 +6278,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Портфейла е заключен.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
         <translation>Портфейла трябва да се пренапише: рестартирайте програмата за завършване на процеса</translation>
     </message>
     <message>

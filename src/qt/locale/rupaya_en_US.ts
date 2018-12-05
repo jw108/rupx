@@ -602,8 +602,8 @@
         <translation>Tabs toolbar</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -622,12 +622,12 @@
         <translation>Browse masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;About RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>&amp;About Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Show information about RUPAYA Core</translation>
+        <source>Show information about Rupaya Core</source>
+        <translation>Show information about Rupaya Core</translation>
     </message>
     <message>
         <source>Modify configuration options for RUPAYA</source>
@@ -682,12 +682,12 @@
         <translation>Block explorer window</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core client</translation>
+        <source>Rupaya Core client</source>
+        <translation>Rupaya Core client</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to RUPAYA network</source>
@@ -1184,16 +1184,16 @@ Address: %4
         <translation>version</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>About RUPAYA Core</translation>
+        <source>About Rupaya Core</source>
+        <translation>About Rupaya Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1239,16 +1239,16 @@ Address: %4
         <translation>Welcome</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Welcome to RUPAYA Core.</translation>
+        <source>Welcome to Rupaya Core.</source>
+        <translation>Welcome to Rupaya Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1259,8 +1259,8 @@ Address: %4
         <translation>Use a custom data directory:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -3126,8 +3126,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core is shutting down...</translation>
+        <source>Rupaya Core is shutting down...</source>
+        <translation>Rupaya Core is shutting down...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -3276,8 +3276,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -3292,8 +3292,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>The Dash Core developers</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>The RUPAYA Core developers</translation>
+        <source>The Rupaya Core developers</source>
+        <translation>The Rupaya Core developers</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -3910,8 +3910,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
-        <translation>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</translation>
+        <source>Cannot obtain a lock on data directory %s. Rupaya Core is probably already running.</source>
+        <translation>Cannot obtain a lock on data directory %s. Rupaya Core is probably already running.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -4106,8 +4106,8 @@ for example: alertnotify=echo %%s | mail -s "RUPAYA Alert" admin@foo.com
 </translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
-        <translation>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</translation>
+        <source>Unable to bind to %s on this computer. Rupaya Core is probably already running.</source>
+        <translation>Unable to bind to %s on this computer. Rupaya Core is probably already running.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -4134,8 +4134,8 @@ for example: alertnotify=echo %%s | mail -s "RUPAYA Alert" admin@foo.com
         <translation>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
-        <translation>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Rupaya Core will not work properly.</source>
+        <translation>Warning: Please check that your computer's date and time are correct! If your clock is wrong Rupaya Core will not work properly.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -4282,8 +4282,8 @@ for example: alertnotify=echo %%s | mail -s "RUPAYA Alert" admin@foo.com
         <translation>Copyright (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
-        <translation>Copyright (C) 2015-%i The RUPAYA Core Developers</translation>
+        <source>Copyright (C) 2015-%i The Rupaya Core Developers</source>
+        <translation>Copyright (C) 2015-%i The Rupaya Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -4354,8 +4354,8 @@ for example: alertnotify=echo %%s | mail -s "RUPAYA Alert" admin@foo.com
         <translation>Error loading wallet.dat: Wallet corrupted</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
-        <translation>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
+        <translation>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -4466,8 +4466,8 @@ for example: alertnotify=echo %%s | mail -s "RUPAYA Alert" admin@foo.com
         <translation>Information</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
-        <translation>Initialization sanity check failed. RUPAYA Core is shutting down.</translation>
+        <source>Initialization sanity check failed. Rupaya Core is shutting down.</source>
+        <translation>Initialization sanity check failed. Rupaya Core is shutting down.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -5086,8 +5086,8 @@ for example: alertnotify=echo %%s | mail -s "RUPAYA Alert" admin@foo.com
         <translation>Wallet is locked.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>Wallet needed to be rewritten: restart RUPAYA Core to complete</translation>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
+        <translation>Wallet needed to be rewritten: restart Rupaya Core to complete</translation>
     </message>
     <message>
         <source>Wallet options:</source>

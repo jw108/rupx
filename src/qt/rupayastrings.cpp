@@ -32,7 +32,7 @@ QT_TRANSLATE_NOOP("rupaya-core", ""
 QT_TRANSLATE_NOOP("rupaya-core", ""
 "Calculated accumulator checkpoint is not what is recorded by block index"),
 QT_TRANSLATE_NOOP("rupaya-core", ""
-"Cannot obtain a lock on data directory %s. RUPAYA Core is probably already "
+"Cannot obtain a lock on data directory %s. Rupaya Core is probably already "
 "running."),
 QT_TRANSLATE_NOOP("rupaya-core", ""
 "Change automatic finalized budget voting behavior. mode=auto: Vote for only "
@@ -192,7 +192,7 @@ QT_TRANSLATE_NOOP("rupaya-core", ""
 "the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software "
 "written by Eric Young and UPnP software written by Thomas Bernard."),
 QT_TRANSLATE_NOOP("rupaya-core", ""
-"Unable to bind to %s on this computer. RUPAYA Core is probably already running."),
+"Unable to bind to %s on this computer. Rupaya Core is probably already running."),
 QT_TRANSLATE_NOOP("rupaya-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("rupaya-core", ""
@@ -212,7 +212,7 @@ QT_TRANSLATE_NOOP("rupaya-core", ""
 "pay if you send a transaction."),
 QT_TRANSLATE_NOOP("rupaya-core", ""
 "Warning: Please check that your computer's date and time are correct! If "
-"your clock is wrong RUPAYA Core will not work properly."),
+"your clock is wrong Rupaya Core will not work properly."),
 QT_TRANSLATE_NOOP("rupaya-core", ""
 "Warning: The network does not appear to fully agree! Some miners appear to "
 "be experiencing issues."),
@@ -268,7 +268,7 @@ QT_TRANSLATE_NOOP("rupaya-core", "Connect to a node to retrieve peer addresses, 
 QT_TRANSLATE_NOOP("rupaya-core", "Connection options:"),
 QT_TRANSLATE_NOOP("rupaya-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
 QT_TRANSLATE_NOOP("rupaya-core", "Copyright (C) 2014-%i The Dash Core Developers"),
-QT_TRANSLATE_NOOP("rupaya-core", "Copyright (C) 2015-%i The RUPAYA Core Developers"),
+QT_TRANSLATE_NOOP("rupaya-core", "Copyright (C) 2015-%i The Rupaya Core Developers"),
 QT_TRANSLATE_NOOP("rupaya-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("rupaya-core", "Could not parse masternode.conf"),
 QT_TRANSLATE_NOOP("rupaya-core", "Debugging/Testing options:"),
@@ -297,7 +297,7 @@ QT_TRANSLATE_NOOP("rupaya-core", "Error initializing wallet database environment
 QT_TRANSLATE_NOOP("rupaya-core", "Error loading block database"),
 QT_TRANSLATE_NOOP("rupaya-core", "Error loading wallet.dat"),
 QT_TRANSLATE_NOOP("rupaya-core", "Error loading wallet.dat: Wallet corrupted"),
-QT_TRANSLATE_NOOP("rupaya-core", "Error loading wallet.dat: Wallet requires newer version of RUPAYA Core"),
+QT_TRANSLATE_NOOP("rupaya-core", "Error loading wallet.dat: Wallet requires newer version of Rupaya Core"),
 QT_TRANSLATE_NOOP("rupaya-core", "Error opening block database"),
 QT_TRANSLATE_NOOP("rupaya-core", "Error reading from database, shutting down."),
 QT_TRANSLATE_NOOP("rupaya-core", "Error recovering public key."),
@@ -336,7 +336,7 @@ QT_TRANSLATE_NOOP("rupaya-core", "Incompatible mode."),
 QT_TRANSLATE_NOOP("rupaya-core", "Incompatible version."),
 QT_TRANSLATE_NOOP("rupaya-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
 QT_TRANSLATE_NOOP("rupaya-core", "Information"),
-QT_TRANSLATE_NOOP("rupaya-core", "Initialization sanity check failed. RUPAYA Core is shutting down."),
+QT_TRANSLATE_NOOP("rupaya-core", "Initialization sanity check failed. Rupaya Core is shutting down."),
 QT_TRANSLATE_NOOP("rupaya-core", "Input is not valid."),
 QT_TRANSLATE_NOOP("rupaya-core", "Insufficient funds"),
 QT_TRANSLATE_NOOP("rupaya-core", "Insufficient funds."),
@@ -506,7 +506,7 @@ QT_TRANSLATE_NOOP("rupaya-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("rupaya-core", "Version 1 zRUPX require a security level of 100 to successfully spend."),
 QT_TRANSLATE_NOOP("rupaya-core", "Wallet %s resides outside data directory %s"),
 QT_TRANSLATE_NOOP("rupaya-core", "Wallet is locked."),
-QT_TRANSLATE_NOOP("rupaya-core", "Wallet needed to be rewritten: restart RUPAYA Core to complete"),
+QT_TRANSLATE_NOOP("rupaya-core", "Wallet needed to be rewritten: restart Rupaya Core to complete"),
 QT_TRANSLATE_NOOP("rupaya-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("rupaya-core", "Wallet window title"),
 QT_TRANSLATE_NOOP("rupaya-core", "Warning"),

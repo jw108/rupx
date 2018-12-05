@@ -645,8 +645,8 @@
         <translation>Панель вкладок</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -669,12 +669,12 @@
         <translation>Обзор мастернод</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;О RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>&amp;О Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Показать информацию о RUPAYA Core</translation>
+        <source>Show information about Rupaya Core</source>
+        <translation>Показать информацию о Rupaya Core</translation>
     </message>
     <message>
         <source>Modify configuration options for RUPAYA</source>
@@ -729,12 +729,12 @@
         <translation>Окно обзора блока</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
         <translation>Смотрите помощь к программе, чтобы получить документацию ко всем возможным опциям комманды RUPAYA</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>Клиент RUPAYA Core</translation>
+        <source>Rupaya Core client</source>
+        <translation>Клиент Rupaya Core</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to RUPAYA network</source>
@@ -1231,16 +1231,16 @@ MultiSend: %1</translation>
         <translation>версия</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-бит)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>О RUPAYA Core</translation>
+        <source>About Rupaya Core</source>
+        <translation>О Rupaya Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1286,16 +1286,16 @@ MultiSend: %1</translation>
         <translation>Добро пожаловать</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Добро пожаловать в RUPAYA Core.</translation>
+        <source>Welcome to Rupaya Core.</source>
+        <translation>Добро пожаловать в Rupaya Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Поскольку это первый запуск программы, вы можете выбрать, где будут храниться данные RUPAYA Core.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>Поскольку это первый запуск программы, вы можете выбрать, где будут храниться данные Rupaya Core.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core загрузит и сохранит копию цепочки блоков RUPAYA. Каталог будет занимать около %1GB и со временем размер будет увеличиваться. Кроме того, в этом каталоге будет храниться кошелек.</translation>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Rupaya Core загрузит и сохранит копию цепочки блоков RUPAYA. Каталог будет занимать около %1GB и со временем размер будет увеличиваться. Кроме того, в этом каталоге будет храниться кошелек.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1306,8 +1306,8 @@ MultiSend: %1</translation>
         <translation>Использовать другой каталог данных:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -4078,8 +4078,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core выключается...</translation>
+        <source>Rupaya Core is shutting down...</source>
+        <translation>Rupaya Core выключается...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4228,8 +4228,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4244,8 +4244,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Разработчики Dash Core</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>Разработчики RUPAYA Core</translation>
+        <source>The Rupaya Core developers</source>
+        <translation>Разработчики Rupaya Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -4909,8 +4909,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Расчетная контрольная точка  не является тем, что регистрируется блочным индексом</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
-        <translation>Не удается получить блокировку в каталоге данных %s. RUPAYA Core, вероятно, уже запущен.</translation>
+        <source>Cannot obtain a lock on data directory %s. Rupaya Core is probably already running.</source>
+        <translation>Не удается получить блокировку в каталоге данных %s. Rupaya Core, вероятно, уже запущен.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -5085,8 +5085,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Этот продукт включает программное обеспечение, разработанное OpenSSL Project для использования в OpenSSL Toolkit &lt;https://www.openssl.org/&gt; и криптографическом программном обеспечении, написанном Эриком Яном и программным обеспечением UPnP, написанным Томасом Бернардом.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
-        <translation>Не удалось привязать к %s на этом компьютере. RUPAYA Core, вероятно, уже запущен.</translation>
+        <source>Unable to bind to %s on this computer. Rupaya Core is probably already running.</source>
+        <translation>Не удалось привязать к %s на этом компьютере. Rupaya Core, вероятно, уже запущен.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -5113,8 +5113,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Предупреждение: -paytxfee установлен очень высоко! Это комиссия за транзакцию, которую вы заплатите, если вы отправляете транзакцию.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
-        <translation>Внимание: проверьте правильность даты и времени вашего компьютера! Если ваши часы ошибочны, RUPAYA Core не будет работать должным образом.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Rupaya Core will not work properly.</source>
+        <translation>Внимание: проверьте правильность даты и времени вашего компьютера! Если ваши часы ошибочны, Rupaya Core не будет работать должным образом.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5265,8 +5265,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Copyright (C) 2014-%i Разработчики Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
-        <translation>Copyright (C) 2015-%i Разработчики RUPAYA Core</translation>
+        <source>Copyright (C) 2015-%i The Rupaya Core Developers</source>
+        <translation>Copyright (C) 2015-%i Разработчики Rupaya Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5353,8 +5353,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Ошибка при загрузке wallet.dat: Кошелек поврежден</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
-        <translation>Ошибка загрузки wallet.dat: Кошелек требует более новой версии RUPAYA Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
+        <translation>Ошибка загрузки wallet.dat: Кошелек требует более новой версии Rupaya Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5469,8 +5469,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Информация</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
-        <translation>Инициализация проверки работоспособности не удалась. RUPAYA Core отключается.</translation>
+        <source>Initialization sanity check failed. Rupaya Core is shutting down.</source>
+        <translation>Инициализация проверки работоспособности не удалась. Rupaya Core отключается.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -6293,8 +6293,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Кошелек заблокирован.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>Кошелек необходимо переписать: перезапустите RUPAYA Core, чтобы завершить</translation>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
+        <translation>Кошелек необходимо переписать: перезапустите Rupaya Core, чтобы завершить</translation>
     </message>
     <message>
         <source>Wallet options:</source>

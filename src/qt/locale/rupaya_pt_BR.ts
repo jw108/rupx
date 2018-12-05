@@ -613,8 +613,8 @@
         <translation>Ferramentas de abas</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Send coins to a RUPAYA address</source>
@@ -637,12 +637,12 @@
         <translation>Procurar masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;Sobre o RUPAYA Core</translation>
+        <source>&amp;About Rupaya Core</source>
+        <translation>&amp;Sobre o Rupaya Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Mostra informação sobre o RUPAYA Core</translation>
+        <source>Show information about Rupaya Core</source>
+        <translation>Mostra informação sobre o Rupaya Core</translation>
     </message>
     <message>
         <source>Modify configuration options for RUPAYA</source>
@@ -697,11 +697,11 @@
         <translation>Janela de exploração de blocos</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Mostra a ajuda da RUPAYA Core para receber uma lista com possíveis opções de linha de comando RUPAYA</translation>
+        <source>Show the Rupaya Core help message to get a list with possible RUPAYA command-line options</source>
+        <translation>Mostra a ajuda da Rupaya Core para receber uma lista com possíveis opções de linha de comando RUPAYA</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
+        <source>Rupaya Core client</source>
         <translation>Cliente Core RUPAYA</translation>
     </message>
     <message>
@@ -1164,16 +1164,16 @@ MultiSend: %1</translation>
         <translation>versão</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>Sobre o RUPAYA Core</translation>
+        <source>About Rupaya Core</source>
+        <translation>Sobre o Rupaya Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1215,16 +1215,16 @@ MultiSend: %1</translation>
         <translation>Bem-vindo</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Bem-vindo ao RUPAYA Core.</translation>
+        <source>Welcome to Rupaya Core.</source>
+        <translation>Bem-vindo ao Rupaya Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Como essa é a primeira vez que o programa é utilizado, você pode escolher onde RUPAYA Core vai armazenar os seus dados.</translation>
+        <source>As this is the first time the program is launched, you can choose where Rupaya Core will store its data.</source>
+        <translation>Como essa é a primeira vez que o programa é utilizado, você pode escolher onde Rupaya Core vai armazenar os seus dados.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core vai baixar e armazenar uma cópia da blockchain RUPAYA. Pelo menos %1GB de informação será armazenado neste diretório e irá aumentar com o tempo. A carteira também será armazenada neste diretório.</translation>
+        <source>Rupaya Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Rupaya Core vai baixar e armazenar uma cópia da blockchain RUPAYA. Pelo menos %1GB de informação será armazenado neste diretório e irá aumentar com o tempo. A carteira também será armazenada neste diretório.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1235,8 +1235,8 @@ MultiSend: %1</translation>
         <translation>Usar um diretório personalizado de dados:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -2969,8 +2969,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core está desligando...</translation>
+        <source>Rupaya Core is shutting down...</source>
+        <translation>Rupaya Core está desligando...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -3111,8 +3111,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Rupaya Core</source>
+        <translation>Rupaya Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -3127,8 +3127,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Os desenvolvedores do Dash Core</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>Os desenvolvedores do RUPAYA Core</translation>
+        <source>The Rupaya Core developers</source>
+        <translation>Os desenvolvedores do Rupaya Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -3712,7 +3712,7 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Aviso: -paytxfee está definido como muito alto! Está e a taxa de transação que você irá pagar se enviar uma transação.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Rupaya Core will not work properly.</source>
         <translation>Aviso: Favor verificar se o horário e data de seu computador estão corretos! Se o seu relógio estiver errado o Core RUPAYA não vai funcionar corretamente.</translation>
     </message>
     <message>
@@ -3792,8 +3792,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Todos os direitos reservados (C) 2014-%i aos Desenvolvedores do Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
-        <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do RUPAYA Core</translation>
+        <source>Copyright (C) 2015-%i The Rupaya Core Developers</source>
+        <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do Rupaya Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -3852,8 +3852,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Erro no carregamento da wallet.dat: Carteira corrompida</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
-        <translation>Erro ao carregar wallet.dat: A Carteira requer uma nova versão da RUPAYA Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Rupaya Core</source>
+        <translation>Erro ao carregar wallet.dat: A Carteira requer uma nova versão da Rupaya Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -4342,8 +4342,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Carteira está travada.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>A carteira precisa ser reescrita: reinicia o RUPAYA Core para completar</translation>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
+        <translation>A carteira precisa ser reescrita: reinicia o Rupaya Core para completar</translation>
     </message>
     <message>
         <source>Wallet options:</source>

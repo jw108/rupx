@@ -1,4 +1,4 @@
-RUPAYA Core version 3.0.5 is now available from:
+Rupaya Core version 3.0.5 is now available from:
 
   <https://github.com/rupaya-project/rupaya/releases>
 
@@ -13,7 +13,7 @@ Please report bugs using the issue tracker at github:
 Mandatory Update
 ==============
 
-RUPAYA Core v3.0.5 is a mandatory update for all users. This release contains various updates/fixes pertaining to the zRUPX protocol, supply tracking, block transmission and relaying, as well as usability and quality-of-life updates to the GUI. Users are required to update before block `908000` which is when the accumulators will be refactored. Shortly after that block, zRUPX transactions will be enabled. **When zRUPX is enabled, autominting will also be enabled.** If you would like to disable automatic conversion of 10% of your RUPAYA balance to zRUPX, then you will need to add `enablezeromint=0` to your `rupaya.conf` file. For information about where to find your rupaya.conf you can visit this link from [RUPAYA Support](https://rupaya.freshdesk.com/support/solutions/articles/30000004664-where-are-my-wallet-dat-blockchain-and-configuration-conf-files-located-).
+Rupaya Core v3.0.5 is a mandatory update for all users. This release contains various updates/fixes pertaining to the zRUPX protocol, supply tracking, block transmission and relaying, as well as usability and quality-of-life updates to the GUI. Users are required to update before block `908000` which is when the accumulators will be refactored. Shortly after that block, zRUPX transactions will be enabled. **When zRUPX is enabled, autominting will also be enabled.** If you would like to disable automatic conversion of 10% of your RUPAYA balance to zRUPX, then you will need to add `enablezeromint=0` to your `rupaya.conf` file. For information about where to find your rupaya.conf you can visit this link from [RUPAYA Support](https://rupaya.freshdesk.com/support/solutions/articles/30000004664-where-are-my-wallet-dat-blockchain-and-configuration-conf-files-located-).
 
 Users will have a grace period to update their clients before versions prior to this release are no longer allowed to connect to this (and future) version(s).
 
@@ -27,7 +27,7 @@ If you are running an older version, shut it down. Wait until it has completely 
 Compatibility
 ==============
 
-RUPAYA Core is extensively tested on multiple operating systems using
+Rupaya Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later.
 
 Microsoft ended support for Windows XP on [April 8th, 2014](https://www.microsoft.com/en-us/WindowsForBusiness/end-of-xp-support),
@@ -35,7 +35,7 @@ No attempt is made to prevent installing or running the software on Windows XP, 
 can still do so at your own risk but be aware that there are known instabilities and issues.
 Please do not report issues about Windows XP to the issue tracker.
 
-RUPAYA Core should also work on most other Unix-like systems but is not
+Rupaya Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 ### :exclamation::exclamation::exclamation: MacOS 10.13 High Sierra :exclamation::exclamation::exclamation:

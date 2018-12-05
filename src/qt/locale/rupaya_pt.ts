@@ -1250,8 +1250,8 @@
         <translation>Carteira esta bloqueada.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>Carteira precisa ser reescrita: reinicie o RUPAYA Core para completar.</translation>
+        <source>Wallet needed to be rewritten: restart Rupaya Core to complete</source>
+        <translation>Carteira precisa ser reescrita: reinicie o Rupaya Core para completar.</translation>
     </message>
     <message>
         <source>Wallet options:</source>

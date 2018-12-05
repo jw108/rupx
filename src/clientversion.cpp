@@ -14,7 +14,7 @@
  * for both rupayad and rupaya-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("RUPAYA Core");
+const std::string CLIENT_NAME("Rupaya Core");
 
 /**
  * Client version number
