@@ -2415,7 +2415,7 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
         LogPrintf("%s : finding missing checkpoints\n", __func__);
 
         //search the chain to see when zerocoin started
-        //int nZerocoinStart = Params().Zerocoin_Block_V2_Start();
+        //int nZerocoinStart = Params().Zerocoin_StartHeight();
 
         // find each checkpoint that is missing
         CBlockIndex* pindex = chainActive.Genesis();

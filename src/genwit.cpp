@@ -21,9 +21,9 @@ bool CGenWit::isValid(int chainActiveHeight) {
         return false;
     }
 
-    //if (startingHeight < Params().Zerocoin_Block_V2_Start()){ /// Probably needs to be removed in our case
-        //return false;
-    //}
+    if (startingHeight < Params().Zerocoin_StartHeight()){ /// Probably needs to be removed in our case
+        return false;
+    }
 
     if (accWitValue == 0){
         std::cout << "invalid accWit" << std::endl;
