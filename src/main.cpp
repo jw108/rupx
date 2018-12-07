@@ -5895,7 +5895,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 gen.setPfrom(pfrom);
                 if (gen.isValid(chainActive.Height())) {
                     if (!lightWorker.addWitWork(gen)) {
-                        LogPrint("zpiv", "%s : add genwit request failed \n", __func__);
+                        LogPrint("zrupx", "%s : add genwit request failed \n", __func__);
                         CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
                         // Invalid request only returns the message without a result.
                         ss << gen.getRequestNum();

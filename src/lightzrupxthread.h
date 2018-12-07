@@ -50,12 +50,12 @@ public:
         return true;
     }
 
-    void StartLightZpivThread(boost::thread_group& threadGroup){
+    void StartLightZrupxThread(boost::thread_group& threadGroup){
         LogPrintf("%s thread start\n", "rupx-light-thread");
         threadIns = boost::thread(boost::bind(&CLightWorker::ThreadLightZRUPXSimplified, this));
     }
 
-    void StopLightZpivThread(){
+    void StopLightZrupxThread(){
         threadIns.interrupt();
         LogPrintf("%s thread interrupted\n", "rupx-light-thread");
     }
@@ -83,7 +83,7 @@ private:
                 } else {
                     LogPrintf("%s calculating work for %s \n\n", "rupx-light-thread", genWit.toString());
                     int blockHeight = pIndex->nHeight;
-                    if (blockHeight >= Params().Zerocoin_Block_V2_Start()) {
+                    if (blockHeight >= pIndex->nHeight()) {
 
                         // TODO: The protocol actually doesn't care about the Accumulator..
                         libzerocoin::Accumulator accumulator(params, genWit.getDen(), genWit.getAccWitValue());
@@ -150,7 +150,7 @@ private:
                 }
             }catch (std::exception& e) {
                 std::cout << "exception in light loop, closing it. " << e.what() << std::endl;
-                PrintExceptionContinue(&e, "lightzpivthread");
+                PrintExceptionContinue(&e, "lightzrupxthread");
                 break;
             }
         }
