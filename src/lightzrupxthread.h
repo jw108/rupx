@@ -83,7 +83,7 @@ private:
                 } else {
                     LogPrintf("%s calculating work for %s \n\n", "rupx-light-thread", genWit.toString());
                     int blockHeight = pIndex->nHeight;
-                    if (blockHeight >= pIndex->nHeight()) {
+                    // if (pIndex->nHeight) {
 
                         // TODO: The protocol actually doesn't care about the Accumulator..
                         libzerocoin::Accumulator accumulator(params, genWit.getDen(), genWit.getAccWitValue());
