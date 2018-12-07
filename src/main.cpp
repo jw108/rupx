@@ -38,7 +38,6 @@
 #include "libzerocoin/Denominations.h"
 #include "primitives/zerocoin.h"
 
-#include "invalid.h"
 #include <sstream>
 
 #include <boost/algorithm/string/replace.hpp>
