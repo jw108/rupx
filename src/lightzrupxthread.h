@@ -75,7 +75,7 @@ private:
                 CGenWit genWit = requestsQueue.pop();
                 LogPrintf("%s pop work for %s \n\n", "rupx-light-thread", genWit.toString());
 
-                libzerocoin::ZerocoinParams *params = Params().Zerocoin_Params(false);
+                libzerocoin::ZerocoinParams *params = Params().Zerocoin_Params();
                 CBlockIndex *pIndex = chainActive[genWit.getStartingHeight()];
                 if (!pIndex) {
                     // Rejects only the failed height
@@ -83,7 +83,7 @@ private:
                 } else {
                     LogPrintf("%s calculating work for %s \n\n", "rupx-light-thread", genWit.toString());
                     int blockHeight = pIndex->nHeight;
-                    if (blockHeight = Params().Last_PoW_Block()) {
+                    if (blockHeight >= Params().Last_PoW_Block()) {
 
                         // TODO: The protocol actually doesn't care about the Accumulator..
                         libzerocoin::Accumulator accumulator(params, genWit.getDen(), genWit.getAccWitValue());

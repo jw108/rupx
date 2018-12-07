@@ -1043,7 +1043,7 @@ UniValue getaccumulatorwitness(const UniValue& params, bool fHelp)
 
     int d = std::stoi(params[1].get_str());
     libzerocoin::CoinDenomination denomination = libzerocoin::IntToZerocoinDenomination(d);
-    libzerocoin::ZerocoinParams* paramsAccumulator = Params().Zerocoin_Params(false);
+    libzerocoin::ZerocoinParams* paramsAccumulator = Params().Zerocoin_Params();
 
     // Public coin
     libzerocoin::PublicCoin pubCoinSelected(paramsAccumulator, coinCommitmentValue, denomination);
