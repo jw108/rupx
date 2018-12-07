@@ -130,8 +130,8 @@ bool CBloomFilter::IsWithinSizeConstraints() const
  */
 bool CBloomFilter::MatchesAll() const {
     for (char b : vData)
-        if (b !=  0xff)
-            return false;
+        //if (b !=  0xff)
+           // return false;
     return true;
 }
 
