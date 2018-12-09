@@ -8,14 +8,20 @@ cache:
   - depends/built
   - depends/sdk-sources
   - $HOME/.ccache
+stages:
+  - lint
+  - test
 env:
   global:
-    - SDK_URL=https://bitcoincore.org/depends-sources/sdks
-    - CCACHE_SIZE=400M
+    - MAKEJOBS=-j3
+    - RUN_TESTS=false
+    - BOOST_TEST_RANDOM=1$TRAVIS_BUILD_ID
+    - CCACHE_SIZE=100M
     - CCACHE_TEMPDIR=/tmp/.ccache-temp
     - CCACHE_COMPRESS=1
     - CCACHE_DIR=$HOME/.ccache
     - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
+    - SDK_URL=https://bitcoincore.org/depends-sources/sdks
     - WINEDEBUG=fixme-all
     - DOCKER_PACKAGES="build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git ca-certificates ccache"
   matrix:
@@ -34,9 +40,10 @@ env:
 # x86_64 Linux (Qt5 & system libs)
     - HOST=x86_64-unknown-linux-gnu PACKAGES="python3-zmq qtbase5-dev qttools5-dev-tools libssl1.0-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libdb5.3++-dev libminiupnpc-dev libzmq3-dev libprotobuf-dev protobuf-compiler libqrencode-dev" NO_DEPENDS=1 RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-zmq --with-incompatible-bdb --enable-glibc-back-compat --enable-reduce-exports --with-gui=qt5 CPPFLAGS=-DDEBUG_LOCKORDER"
 # x86_64 Linux, No wallet
-#    - HOST=x86_64-unknown-linux-gnu PACKAGES="python3" DEP_OPTS="NO_WALLET=1" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat --enable-reduce-exports"
+   - HOST=x86_64-unknown-linux-gnu PACKAGES="python3" DEP_OPTS="NO_WALLET=1" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat --enable-reduce-exports"
 # Cross-Mac
     - HOST=x86_64-apple-darwin11 PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git" BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror" OSX_SDK=10.11 GOAL="all deploy"
+
 before_install:
     - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
 install:
