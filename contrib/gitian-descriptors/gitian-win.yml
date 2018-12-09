@@ -23,8 +23,8 @@ packages:
 - "python"
 - "rename"
 remotes:
-- "url": "https://github.com/rupaya-project/rupaya.git"
-  "dir": "rupaya"
+- "url": "https://github.com/rupaya-project/rupx.git"
+  "dir": "rupx"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
