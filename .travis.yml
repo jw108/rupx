@@ -66,12 +66,8 @@ script:
     - DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
     - DOCKER_EXEC make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
 before_deploy:
-# Set up git user name and tag this commit
-#  - git config --local user.name "binarysculptor"
-#  - git config --local user.email "martin@bravelantern.com"
-#  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
    - "./pre-deploy.sh"
-  deploy:
+deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
